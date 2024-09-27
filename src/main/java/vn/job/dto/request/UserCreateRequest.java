@@ -32,7 +32,7 @@ public class UserCreateRequest implements Serializable {
     @NotNull(message = "gender must be not null")
     @EnumValue(name = "gender", enumClass = Gender.class)
 //    @Enumerated(EnumType.STRING)
-    private String gender;
+    private Gender gender;
 
     @PhoneNumber
     private String phone;
@@ -53,4 +53,10 @@ public class UserCreateRequest implements Serializable {
 
     private String language;
 
+    public UserCreateRequest(String firstName, String lastName, String email, String phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+    }
 }
