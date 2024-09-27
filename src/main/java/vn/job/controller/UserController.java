@@ -19,43 +19,42 @@ import java.util.List;
 @Tag(name = "User Controller")
 public class UserController {
 
-    @Operation(summary = "Get all users", description = "API get list of users from databases")
-    @GetMapping("/list")
-    public List<UserResponse> getAllUsers(@RequestParam(required = false) String keyword,
-                                          @RequestParam(defaultValue = "0") int page,
-                                          @RequestParam(defaultValue = "10") int pageSize) {
-        List<UserResponse> list =  new ArrayList<>();
-        list.add(UserResponse.builder().id(1).
-                firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
-                .gender(Gender.male).language("vietnam").build());
-        list.add(UserResponse.builder().id(2).
-                firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
-                .gender(Gender.male).language("vietnam").build());
-        list.add(UserResponse.builder().id(3    ).
-                firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
-                .gender(Gender.male).language("vietnam").build());
-        return list;
-    }
+//    @Operation(summary = "Get all users", description = "API get list of users from databases")
+//    @GetMapping("/list")
+//    public List<UserResponse> getAllUsers(@RequestParam(required = false) String keyword,
+//                                          @RequestParam(defaultValue = "0") int page,
+//                                          @RequestParam(defaultValue = "10") int pageSize) {
+//        List<UserResponse> list =  new ArrayList<>();
+//        list.add(UserResponse.builder().id(1).
+//                firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
+//                .gender(Gender.male).language("vietnam").build());
+//        list.add(UserResponse.builder().id(2).
+//                firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
+//                .gender(Gender.male).language("vietnam").build());
+//        list.add(UserResponse.builder().id(3    ).
+//                firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
+//                .gender(Gender.male).language("vietnam").build());
+//        return list;
+//    }
 
-    @Operation(summary = "Get user detail", description = "API get user by id from databases")
-    @GetMapping("/{userId}")
-    public UserResponse getUserById(@PathVariable @Min(1) long userId) {
-        return UserResponse.builder().id(1).
-                firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
-                .gender(Gender.male).language("vietnam").build();
-    }
+//    @Operation(summary = "Get user detail", description = "API get user by id from databases")
+//    @GetMapping("/{userId}")
+//    public UserResponse getUserById(@PathVariable @Min(1) long userId) {
+//        return UserResponse.builder().id(1).
+//                firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
+//                .gender(Gender.male).language("vietnam").build();
+//    }
 
     @Operation(summary = "Create new user", description = "API for insert user into databases")
     @PostMapping("/add")
-    public int addUser(@Valid @RequestBody UserCreateRequest request) {
+    public String addUser(@Valid @RequestBody UserCreateRequest request) {
 
-        return 1;
+        return "add successfully";
     }
 
     @Operation(summary = "Update user", description = "API for update user into databases")
     @PutMapping("/update")
     public void updateUser( @RequestBody UserUpdateRequest request)  {
-
 
 
     }

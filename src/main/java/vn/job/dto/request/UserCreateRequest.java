@@ -7,6 +7,7 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
+import vn.job.util.EnumValue;
 import vn.job.util.Gender;
 import vn.job.util.PhoneNumber;
 
@@ -28,8 +29,10 @@ public class UserCreateRequest implements Serializable {
     @JsonFormat(pattern = "MM/dd/yyyy")
     private String dateOfBirth;
 
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    @NotNull(message = "gender must be not null")
+    @EnumValue(name = "gender", enumClass = Gender.class)
+//    @Enumerated(EnumType.STRING)
+    private String gender;
 
     @PhoneNumber
     private String phone;
