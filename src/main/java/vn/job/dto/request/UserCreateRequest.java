@@ -21,7 +21,7 @@ public class UserCreateRequest implements Serializable {
     @NotBlank(message = "firstName must be not blank")
     private String firstName;
 
-    @NotBlank(message = "firstName must be not blank")
+    @NotBlank(message = "lastName must be not blank")
     private String lastName;
 
     @NotNull(message = "dateOfBirth must be not null")
@@ -32,7 +32,7 @@ public class UserCreateRequest implements Serializable {
     @NotNull(message = "gender must be not null")
     @EnumValue(name = "gender", enumClass = Gender.class)
 //    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private String gender;
 
     @PhoneNumber
     private String phone;

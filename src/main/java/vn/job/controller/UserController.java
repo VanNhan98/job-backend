@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import vn.job.dto.request.UserCreateRequest;
 import vn.job.dto.request.UserUpdateRequest;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@Validated
 @Tag(name = "User Controller")
 public class UserController {
 
@@ -25,7 +27,7 @@ public class UserController {
     @GetMapping("/list")
     public ResponseData<List<UserCreateRequest>> getAllUsers(@RequestParam(required = false) String keyword,
                                           @RequestParam(defaultValue = "0") int page,
-                                          @RequestParam(defaultValue = "10") int pageSize) {
+                                          @RequestParam(defaultValue = "10") int size) {
         return new ResponseData<>(HttpStatus.OK.value(), "user" ,List.of(new UserCreateRequest("mai", "nhan", "han@gmail.com","12312"),
                 new UserCreateRequest("mai", "nhan", "han@gmail.com","12312")));
     }
@@ -43,16 +45,22 @@ public class UserController {
         return new ResponseData<>(HttpStatus.CREATED.value(), "User add successfully", 1);
     }
 
-    @Operation(summary = "Update user", description = "API for update user into databases")
-    @PutMapping("/update")
-    public ResponseData<?> updateUser( @RequestBody UserUpdateRequest request)  {
+//    @Operation(summary = "Update user", description = "API for update user into databases")
+//    @PutMapping("/update")
+//    public ResponseData<?> updateUser(@Valid @RequestBody UserUpdateRequest request)  {
+//        return new ResponseData<>(HttpStatus.ACCEPTED.value(), "User updated successfully");
+//    }
+@Operation(summary = "Update user", description = "API for update user into databases")
+    @PutMapping("/update/{id}")
+    public ResponseData<?> updateUser(@Valid @PathVariable @Min(1) long id, @RequestBody UserUpdateRequest request)  {
         return new ResponseData<>(HttpStatus.ACCEPTED.value(), "User updated successfully");
     }
 
-    @Operation(summary = "Change password", description = "API for change password user into databases")
+
+@Operation(summary = "Change password", description = "API for change password user into databases")
     @PatchMapping("/change-password/{userId}")
-    public String changePassword(@PathVariable @Min(1) long userId, @Min(1) @RequestBody String  password) {
-        return "Password changed successfully";
+    public ResponseData<Void> changePassword(@PathVariable @Min(1) long userId, @Min(1) @RequestBody String  password) {
+        return new ResponseData<>(HttpStatus.ACCEPTED.value(), "User change successfully" );
     }
 
     @Operation(summary = "Delete user", description = "API for delete user from databases")
