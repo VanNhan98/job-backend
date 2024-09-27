@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class UserUpdateRequest implements Serializable {
+    private long id;
     private String firstName;
     private String lastName;
     private String username;

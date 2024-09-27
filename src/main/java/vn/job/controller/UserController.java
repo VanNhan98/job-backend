@@ -1,7 +1,10 @@
 package vn.job.controller;
 
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import org.springframework.web.bind.annotation.*;
 import vn.job.dto.request.UserCreateRequest;
 import vn.job.dto.request.UserUpdateRequest;
@@ -16,9 +19,12 @@ import java.util.List;
 @Tag(name = "User Controller")
 public class UserController {
 
+    @Operation(summary = "Get all users", description = "API get list of users from databases")
     @GetMapping("/list")
-    public List<UserResponse> getAllUsers() {
-        List<UserResponse> list =  new ArrayList<UserResponse>();
+    public List<UserResponse> getAllUsers(@RequestParam(required = false) String keyword,
+                                          @RequestParam(defaultValue = "0") int page,
+                                          @RequestParam(defaultValue = "10") int pageSize) {
+        List<UserResponse> list =  new ArrayList<>();
         list.add(UserResponse.builder().id(1).
                 firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
                 .gender(Gender.male).language("vietnam").build());
@@ -31,39 +37,39 @@ public class UserController {
         return list;
     }
 
+    @Operation(summary = "Get user detail", description = "API get user by id from databases")
     @GetMapping("/{userId}")
-    public UserResponse getUserById() {
+    public UserResponse getUserById(@PathVariable @Min(1) long userId) {
         return UserResponse.builder().id(1).
                 firstName("Nhan").lastName("Mai").phone("12345").dateOfBirth("1998").username("mainhan").country("US")
                 .gender(Gender.male).language("vietnam").build();
     }
 
-
+    @Operation(summary = "Create new user", description = "API for insert user into databases")
     @PostMapping("/add")
-    public UserResponse addUser(@RequestBody UserCreateRequest request) {
-        UserResponse currentUser = UserResponse.builder().id(1).firstName(request.getFirstName()).lastName(request.getLastName())
-                .phone(request.getPhone()).dateOfBirth(request.getDateOfBirth()).username(request.getUsername())
-                .country(request.getCountry()).gender(request.getGender()).language(request.getLanguage()).build();
-        return currentUser;
+    public int addUser(@Valid @RequestBody UserCreateRequest request) {
+
+        return 1;
     }
 
-    @PutMapping("/update/{userId}")
-    public UserResponse updateUser(@PathVariable long userId, @RequestBody UserUpdateRequest request)  {
-        UserResponse updateUser = UserResponse.builder().id(userId).firstName(request.getFirstName()).lastName(request.getLastName())
-                .phone(request.getPhone()).dateOfBirth(request.getDateOfBirth()).username(request.getUsername())
-                .country(request.getCountry()).gender(request.getGender()).language(request.getLanguage()).build();
-        return updateUser;
+    @Operation(summary = "Update user", description = "API for update user into databases")
+    @PutMapping("/update")
+    public void updateUser( @RequestBody UserUpdateRequest request)  {
+
+
 
     }
 
-    @PatchMapping("/change-password")
-    public String changePassword() {
+    @Operation(summary = "Change password", description = "API for change password user into databases")
+    @PatchMapping("/change-password/{userId}")
+    public String changePassword(@PathVariable @Min(1) long userId, @Min(1) @RequestBody String  password) {
         return "Password changed successfully";
     }
 
+    @Operation(summary = "Delete user", description = "API for delete user from databases")
     @DeleteMapping("/delete{userId}")
-    public String deleteUser(long id) {
-        return "User" + id + " is deleted successfully";
+    public String deleteUser(@Min(1) @PathVariable  long userId) {
+        return "User" + userId + " is deleted successfully";
     }
 
 }
