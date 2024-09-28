@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
     }
 
     // handle validations
-    @ExceptionHandler({MethodArgumentNotValidException.class, ConstraintViolationException.class})
+    @ExceptionHandler({MethodArgumentNotValidException.class})
     public ErrorResponse handleValidationException(MethodArgumentNotValidException e, WebRequest request){
         ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setTimestamp(new Date());

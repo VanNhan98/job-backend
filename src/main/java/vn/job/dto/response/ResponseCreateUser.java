@@ -1,14 +1,17 @@
 package vn.job.dto.response;
 
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.Builder;
 import lombok.Getter;
-import vn.job.util.Gender;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Builder
-public class UserResponse implements Serializable {
+public class ResponseCreateUser implements Serializable {
     private long id;
 
     private String firstName;
@@ -19,11 +22,15 @@ public class UserResponse implements Serializable {
 
     private String gender;
 
+    private String email;
+
     private String phone;
 
     private String username;
 
-    private String country;
+    private String address;
 
     private String language;
+
+    private Date createdAt;
 }

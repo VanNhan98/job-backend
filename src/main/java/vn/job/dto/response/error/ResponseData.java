@@ -1,4 +1,4 @@
-package vn.job.dto.response;
+package vn.job.dto.response.error;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
