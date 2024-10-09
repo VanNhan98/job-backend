@@ -2,12 +2,20 @@ package vn.job.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import vn.job.dto.response.ResPagination;
+import vn.job.dto.response.ResUserDetail;
 import vn.job.dto.response.ResponseCreateUser;
 import vn.job.dto.response.ResponseUpdateUser;
 import vn.job.exception.IdInvalidException;
 import vn.job.model.User;
 import vn.job.repository.UserRepository;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -67,6 +75,61 @@ public class UserService {
                .updatedAt(updatedUser.getUpdatedAt()).build();
         log.info("User updated successfully");
         return resUser;
+    }
+
+    public ResPagination handleGetAllUsers(Specification<User> spec, Pageable pageable) {
+        Page<User> pageUser = this.userRepository.findAll(spec, pageable);
+        ResPagination rs = new ResPagination();
+        ResPagination.Meta mt = new ResPagination.Meta();
+        mt.setPage(pageable.getPageNumber() + 1);
+        mt.setPageSize(pageable.getPageSize());
+        mt.setPages(pageUser.getTotalPages());
+        mt.setTotal(pageUser.getTotalElements());
+        rs.setMeta(mt);
+
+        List<ResUserDetail> listUser = pageUser.getContent()
+                .stream()
+                .map(user -> new ResUserDetail(
+                        user.getId(),
+                        user.getFirstName(),
+                        user.getLastName(),
+                        user.getDateOfBirth(),
+                        user.getGender(),
+                        user.getEmail(),
+                        user.getPhone(),
+                        user.getUsername(),
+                        user.getAddress(),
+                        user.getLanguage(),
+                        user.getUpdatedAt(),
+                        user.getCreatedAt()))
+                .collect(Collectors.toList());
+        rs.setResult(listUser);
+        log.info("Get All Users successfully");
+        return rs;
+    }
+
+    public ResUserDetail handleGetUser(long id) {
+        User currentUser = handleGetUserById(id);
+        ResUserDetail resUser = ResUserDetail.builder()
+                .id(currentUser.getId())
+                .firstName(currentUser.getFirstName())
+                .lastName(currentUser.getLastName())
+                .dateOfBirth(currentUser.getDateOfBirth())
+                .gender(currentUser.getGender())
+                .phone(currentUser.getPhone())
+                .email(currentUser.getEmail())
+                .username(currentUser.getUsername())
+                .address(currentUser.getAddress())
+                .language(currentUser.getLanguage())
+                .updatedAt(currentUser.getUpdatedAt())
+                .createdAt(currentUser.getCreatedAt()).build();
+        log.info("Get User successfully");
+        return resUser;
+    }
+    public void handleDeleteUserById(long id) {
+        User currentUser = handleGetUserById(id);
+        this.userRepository.deleteById(currentUser.getId());
+        log.info("Delete successfully");
     }
 
     private User handleGetUserById(long userId) {
