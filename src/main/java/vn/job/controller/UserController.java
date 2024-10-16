@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import vn.job.dto.response.ResPagination;
@@ -31,12 +32,15 @@ import vn.job.service.UserService;
 public class UserController {
     private final UserService userService;
 
+    private final PasswordEncoder passwordEncoder;
 
 
     @Operation(summary = "Create new user", description = "API for insert user into databases")
     @PostMapping("/add")
     public ResponseData<ResponseCreateUser> addUser(@Valid @RequestBody User user) {
         try {
+            String hashPassWord = this.passwordEncoder.encode(user.getPassword());
+            user.setPassword(hashPassWord);
             ResponseCreateUser currentUser = userService.handleCreateUser(user);
             return new ResponseData<>(HttpStatus.CREATED.value(), "User add successfully", currentUser);
 

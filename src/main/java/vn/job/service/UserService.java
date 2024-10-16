@@ -9,11 +9,13 @@ import org.springframework.data.jpa.domain.Specification;
 //import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import vn.job.dto.response.ResPagination;
 import vn.job.dto.response.ResUserDetail;
 import vn.job.dto.response.ResponseCreateUser;
 import vn.job.dto.response.ResponseUpdateUser;
+import vn.job.exception.EmailAlreadyExistsException;
 import vn.job.exception.IdInvalidException;
 import vn.job.model.User;
 import vn.job.repository.UserRepository;
@@ -27,10 +29,17 @@ import java.util.stream.Collectors;
 public class UserService {
     private final UserRepository userRepository;
 
+
     public UserDetailsService userDetailsService() {
-        return username -> this.userRepository.findByEmail(username).orElseThrow(() ->new UsernameNotFoundException("User not found"));
+        return email -> this.userRepository.findByEmail(email).orElseThrow(() ->new UsernameNotFoundException("User not found"));
     }
     public ResponseCreateUser handleCreateUser(User user) {
+        if (isEmailExist(user.getEmail())) {
+            throw new EmailAlreadyExistsException("Email already exists: " + user.getEmail());
+        }
+
+
+
         //save
         User currentUser =  this.userRepository.save(user);
 
@@ -141,6 +150,10 @@ public class UserService {
 
     private User handleGetUserById(long userId) {
         return userRepository.findById(userId).orElseThrow(() -> new IdInvalidException("User not found"));
+    }
+
+    public boolean isEmailExist(String email) {
+        return this.userRepository.existsByEmail(email);
     }
 
 
