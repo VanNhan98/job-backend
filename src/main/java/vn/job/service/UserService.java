@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import vn.job.dto.response.ResPagination;
 import vn.job.dto.response.ResUserDetail;
@@ -23,6 +25,8 @@ import java.util.stream.Collectors;
 public class UserService {
     private final UserRepository userRepository;
 
+
+
     public ResponseCreateUser handleCreateUser(User user) {
         //save
         User currentUser =  this.userRepository.save(user);
@@ -33,7 +37,7 @@ public class UserService {
                 .firstName(currentUser.getFirstName())
                 .lastName(currentUser.getLastName())
                 .dateOfBirth(currentUser.getDateOfBirth())
-                .gender(currentUser.getGender())
+                .gender(String.valueOf(currentUser.getGender()))
                 .email(currentUser.getEmail())
                 .phone(currentUser.getPhone())
                 .username(currentUser.getUsername())
@@ -56,7 +60,6 @@ public class UserService {
         currentUser.setAddress(user.getAddress());
         currentUser.setLanguage(user.getLanguage());
         currentUser.setEmail(user.getEmail());
-        currentUser.setPassword(user.getPassword());
 
         //save
         User updatedUser = this.userRepository.save(currentUser);
@@ -67,12 +70,13 @@ public class UserService {
                .firstName(updatedUser.getFirstName())
                .lastName(updatedUser.getLastName())
                .dateOfBirth(updatedUser.getDateOfBirth())
-               .gender(updatedUser.getGender())
+               .gender(String.valueOf(updatedUser.getGender()))
                .phone(updatedUser.getPhone())
                 .username(updatedUser.getUsername())
                .address(updatedUser.getAddress())
                 .language(updatedUser.getLanguage())
-               .updatedAt(updatedUser.getUpdatedAt()).build();
+               .updatedAt(updatedUser.getUpdatedAt())
+                .updatedBy(currentUser.getUpdatedBy()).build();
         log.info("User updated successfully");
         return resUser;
     }
@@ -94,7 +98,7 @@ public class UserService {
                         user.getFirstName(),
                         user.getLastName(),
                         user.getDateOfBirth(),
-                        user.getGender(),
+                        user.getGender().name(),
                         user.getEmail(),
                         user.getPhone(),
                         user.getUsername(),
@@ -115,7 +119,7 @@ public class UserService {
                 .firstName(currentUser.getFirstName())
                 .lastName(currentUser.getLastName())
                 .dateOfBirth(currentUser.getDateOfBirth())
-                .gender(currentUser.getGender())
+                .gender(String.valueOf(currentUser.getGender()))
                 .phone(currentUser.getPhone())
                 .email(currentUser.getEmail())
                 .username(currentUser.getUsername())
@@ -135,4 +139,6 @@ public class UserService {
     private User handleGetUserById(long userId) {
         return userRepository.findById(userId).orElseThrow(() -> new IdInvalidException("User not found"));
     }
+
+
 }

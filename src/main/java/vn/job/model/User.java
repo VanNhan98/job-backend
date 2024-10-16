@@ -2,32 +2,30 @@ package vn.job.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.type.SqlTypes;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
 import vn.job.util.EnumValue;
 import vn.job.util.Gender;
 import vn.job.util.PhoneNumber;
+import java.util.Collection;
+import java.util.List;
 
-import java.util.Date;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @Table(name ="tbl_user")
-public class User extends BaseEntity {
+public class User extends BaseEntity
+//        implements UserDetails
+{
 
     @NotBlank(message = "firstName must be not blank")
     private String firstName;
@@ -41,9 +39,9 @@ public class User extends BaseEntity {
     private String dateOfBirth;
 
     @NotNull(message = "gender must be not null")
-    @EnumValue(name = "gender", enumClass = Gender.class)
-//    @Enumerated(EnumType.STRING)
-    private String gender;
+//    @EnumValue(name = "gender", enumClass = Gender.class)
+    @Enumerated(EnumType.STRING)
+    private Gender  gender;
 
     @PhoneNumber
     private String phone;
@@ -54,7 +52,7 @@ public class User extends BaseEntity {
     @NotNull(message = "username must be not null")
     private String username;
 
-    @NotNull(message = "password must be not null")
+    @NotBlank(message = "password must be not null")
     private String password;
 
 
@@ -62,6 +60,7 @@ public class User extends BaseEntity {
     private String address;
 
     private String language;
+
 
 
 }

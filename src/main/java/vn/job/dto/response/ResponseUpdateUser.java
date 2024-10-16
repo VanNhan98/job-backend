@@ -27,4 +27,6 @@ public class ResponseUpdateUser implements Serializable {
     private String language;
 
     private Date updatedAt;
+
+    private String updatedBy;
 }
