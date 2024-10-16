@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 //import org.springframework.security.core.userdetails.UserDetailsService;
 //import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import vn.job.dto.response.ResPagination;
 import vn.job.dto.response.ResUserDetail;
@@ -25,8 +27,9 @@ import java.util.stream.Collectors;
 public class UserService {
     private final UserRepository userRepository;
 
-
-
+    public UserDetailsService userDetailsService() {
+        return username -> this.userRepository.findByEmail(username).orElseThrow(() ->new UsernameNotFoundException("User not found"));
+    }
     public ResponseCreateUser handleCreateUser(User user) {
         //save
         User currentUser =  this.userRepository.save(user);
