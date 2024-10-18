@@ -24,7 +24,7 @@ public class SecurityConfig {
     private final CustomizeFilter preFilter;
 
     private String[] WHITE_LIST = {
-            "/", "/auth/**","/user/**"
+            "/", "/auth/**"
     };
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
