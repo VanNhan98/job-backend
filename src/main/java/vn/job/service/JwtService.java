@@ -45,7 +45,7 @@ public class JwtService {
                 .setClaims(claims)
                 .setSubject(user.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + expiryMinutes * 60 * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + expiryMinutes * 60 * 1000 * expiryDay))
                 .signWith(getKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -90,7 +90,7 @@ public class JwtService {
 
     public boolean isValid(String token, UserDetails user) {
         final String userNameFromToken  = extractUsername(token);
-        return userNameFromToken.equals(user.getUsername());
+        return userNameFromToken.equals(user.getUsername()) && !isTokenExpired(token);
     }
 
 
@@ -104,5 +104,11 @@ public class JwtService {
     }
 
 
+    private boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date()) ;
+    }
 
+    private Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
 }

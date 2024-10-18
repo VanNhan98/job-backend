@@ -1,6 +1,7 @@
 package vn.job.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -32,8 +33,8 @@ public class AuthController {
     }
 
     @PostMapping("/refresh")
-    public String refresh() {
-        return "success";
+    public ResponseEntity<TokenResponse> refresh(HttpServletRequest request) {
+        return new ResponseEntity<>(authService.refresh(request), HttpStatus.OK);
     }
 
     @PostMapping("/logout")
