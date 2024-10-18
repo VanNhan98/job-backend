@@ -13,6 +13,7 @@ import vn.job.dto.response.TokenResponse;
 import vn.job.exception.InvalidDataException;
 import vn.job.model.User;
 import vn.job.repository.UserRepository;
+import vn.job.util.TokenType;
 
 import java.util.Optional;
 
@@ -48,16 +49,15 @@ public class AuthService {
         }
 
         // extract email or user the refresh token
-        final String email = jwtService.extractEmail(refreshToken);
-        System.out.println("userName: " + email);
+        final String email = jwtService.extractEmail(refreshToken, TokenType.REFRESH_TOKEN);
+
 
         // check into db
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        System.out.println("userId {}"+user.getEmail());
 
-        if(!jwtService.isValid(refreshToken, user)) {
 
+        if(!jwtService.isValid(refreshToken,TokenType.REFRESH_TOKEN, user)) {
             throw new InvalidDataException("Token is invalid");
         }
 

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import vn.job.service.JwtService;
 import vn.job.service.UserService;
+import vn.job.util.TokenType;
 
 import java.io.IOException;
 
@@ -37,11 +38,11 @@ public class CustomizeFilter extends OncePerRequestFilter {
         }
         final String token = authorization.substring("Bearer ".length());
         log.info("token: {}",token);
-        final String email = jwtService.extractEmail(token);
+        final String email = jwtService.extractEmail(token, TokenType.ACCESS_TOKEN);
 
         if(StringUtils.isNotEmpty(email) && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userService.userDetailsService().loadUserByUsername(email);
-            if(jwtService.isValid(token,userDetails)) {
+            if(jwtService.isValid(token, TokenType.ACCESS_TOKEN,userDetails)) {
                 SecurityContext context = SecurityContextHolder.createEmptyContext();
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
