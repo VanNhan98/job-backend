@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,11 +15,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import vn.job.dto.response.error.ApiErrorResponse;
 import vn.job.service.JwtService;
 import vn.job.service.UserService;
 import vn.job.util.TokenType;
-
 import java.io.IOException;
+import java.util.Date;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 @Component
 @RequiredArgsConstructor
@@ -38,7 +42,17 @@ public class CustomizeFilter extends OncePerRequestFilter {
         }
         final String token = authorization.substring("Bearer ".length());
         log.info("token: {}",token);
-        final String email = jwtService.extractEmail(token, TokenType.ACCESS_TOKEN);
+
+        String email ="";
+        try {
+            email = jwtService.extractEmail(token, TokenType.ACCESS_TOKEN);
+            log.info("email: {}", email);
+        }catch (AccessDeniedException e) {
+            log.info(e.getMessage());
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().write(errorResponse(e.getMessage()));
+        }
+
 
         if(StringUtils.isNotEmpty(email) && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userService.userDetailsService().loadUserByUsername(email);
@@ -54,4 +68,23 @@ public class CustomizeFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
 
     }
+    /**
+     * Create error response with pretty template
+     * @param message
+     * @return
+     */
+    private String errorResponse(String message) {
+        try {
+            ApiErrorResponse error = new ApiErrorResponse();
+            error.setTimestamp(new Date());
+            error.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            error.setMessage(message);
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            return gson.toJson(error);
+        } catch (Exception e) {
+            return ""; // Return an empty string if serialization fails
+        }
+    }
+
 }
