@@ -25,8 +25,8 @@ public class AuthService {
 
         var user = userRepository.findByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("Email or Password failed"));
 
-        String accessToken = this.jwtService.generateToken(user, request.getEmail());
-        String refreshToken = "DUMMY_REFRESH_TOKEN";
+        String accessToken = this.jwtService.generateAccessToken(user, request.getEmail());
+        String refreshToken = this.jwtService.generateRefreshToken(user, request.getEmail());
         return TokenResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
