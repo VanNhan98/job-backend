@@ -55,7 +55,10 @@ public class UserService {
                 .username(currentUser.getUsername())
                 .address(currentUser.getAddress())
                 .language(currentUser.getLanguage())
-                .createdAt(currentUser.getCreatedAt()).build();
+                .createdAt(currentUser.getCreatedAt())
+                .createdBy(currentUser.getCreatedBy())
+                .build();
+
         log.info("User created successfully");
         return resUser;
 
@@ -117,7 +120,10 @@ public class UserService {
                         user.getAddress(),
                         user.getLanguage(),
                         user.getUpdatedAt(),
-                        user.getCreatedAt()))
+                        user.getCreatedAt(),
+                        user.getUpdatedBy(),
+                        user.getCreatedBy()
+                 ))
                 .collect(Collectors.toList());
         rs.setResult(listUser);
         log.info("Get All Users successfully");
@@ -138,7 +144,10 @@ public class UserService {
                 .address(currentUser.getAddress())
                 .language(currentUser.getLanguage())
                 .updatedAt(currentUser.getUpdatedAt())
-                .createdAt(currentUser.getCreatedAt()).build();
+                .updatedBy(currentUser.getUpdatedBy())
+                .createdAt(currentUser.getCreatedAt())
+                .createdBy(currentUser.getCreatedBy())
+                .build();
         log.info("Get User successfully");
         return resUser;
     }

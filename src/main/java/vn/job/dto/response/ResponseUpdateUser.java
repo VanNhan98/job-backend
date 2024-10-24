@@ -1,7 +1,9 @@
 package vn.job.dto.response;
 
+import jakarta.persistence.PreUpdate;
 import lombok.Builder;
 import lombok.Getter;
+import vn.job.service.JwtService;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -29,4 +31,6 @@ public class ResponseUpdateUser implements Serializable {
     private Date updatedAt;
 
     private String updatedBy;
+
+
 }

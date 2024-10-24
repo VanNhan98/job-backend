@@ -10,7 +10,7 @@ services:
       - MYSQL_DATABASE=demojob
       - MYSQL_ROOT_PASSWORD=password
     ports:
-      - '3306:3306'
+      - '3307:3306'
     volumes:
       - mysql_data:/var/lib/mysql
       - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
@@ -28,3 +28,8 @@ services:
 networks:
    default:
      name: job-backend
+
+volumes:
+  mysql_data:
+
+

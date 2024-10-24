@@ -1,10 +1,12 @@
 package vn.job.dto.response;
 
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.Builder;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
+import vn.job.service.JwtService;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -33,4 +35,7 @@ public class ResponseCreateUser implements Serializable {
     private String language;
 
     private Date createdAt;
+
+    private String createdBy;
+
 }

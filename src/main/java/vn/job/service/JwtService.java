@@ -10,6 +10,9 @@ import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import vn.job.model.User;
@@ -19,6 +22,7 @@ import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 import static vn.job.util.TokenType.ACCESS_TOKEN;
@@ -126,4 +130,17 @@ public class JwtService {
     private Date extractExpiration(String token, TokenType type) {
         return extractClaim(token, type, Claims::getExpiration);
     }
+
+
+
+    public static Optional<String> getCurrentUserLogin() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            return Optional.ofNullable(authentication.getName());
+        }
+        return Optional.empty();
+    }
+
 }
