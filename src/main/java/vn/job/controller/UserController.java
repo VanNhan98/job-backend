@@ -38,29 +38,30 @@ public class UserController {
     @Operation(summary = "Create new user", description = "API for insert user into databases")
     @PostMapping("/add")
     public ResponseData<ResponseCreateUser> addUser(@Valid @RequestBody User user) {
+
         try {
             String hashPassWord = this.passwordEncoder.encode(user.getPassword());
             user.setPassword(hashPassWord);
             ResponseCreateUser currentUser = userService.handleCreateUser(user);
             return new ResponseData<>(HttpStatus.CREATED.value(), "User add successfully", currentUser);
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error("errorMessage= {} ", e.getMessage(), e.getCause());
             return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Add user failed");
         }
     }
 
-        @Operation(summary = "Update user", description = "API for update user into databases")
+    @Operation(summary = "Update user", description = "API for update user into databases")
     @PutMapping("/update")
-    public ResponseData<ResponseUpdateUser> updateUser(@Valid @RequestBody User reqUser)  {
-            try {
-                ResponseUpdateUser currentUser = userService.handleUpdateUser(reqUser);
-                return new ResponseData<>(HttpStatus.ACCEPTED.value(), "User updated successfully",currentUser);
+    public ResponseData<ResponseUpdateUser> updateUser(@Valid @RequestBody User reqUser) {
+        try {
+            ResponseUpdateUser currentUser = userService.handleUpdateUser(reqUser);
+            return new ResponseData<>(HttpStatus.ACCEPTED.value(), "User updated successfully", currentUser);
 
-            }catch (Exception e) {
-                log.error("errorMessage= {} ", e.getMessage(), e.getCause());
-                return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Update user failed");
-            }
+        } catch (Exception e) {
+            log.error("errorMessage= {} ", e.getMessage(), e.getCause());
+            return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Update user failed");
+        }
     }
 
     @Operation(summary = "Get user detail", description = "API get user by id from databases")
@@ -81,7 +82,7 @@ public class UserController {
     public ResponseData<ResPagination> getAllUsers(@Filter Specification<User> spec, Pageable pageable
     ) {
         try {
-            ResPagination currentUser = this.userService.handleGetAllUsers(spec,pageable);
+            ResPagination currentUser = this.userService.handleGetAllUsers(spec, pageable);
             return new ResponseData<>(HttpStatus.OK.value(), "Get user successfully", currentUser);
 
         } catch (Exception e) {

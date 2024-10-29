@@ -33,15 +33,21 @@ public class UserService {
     public UserDetailsService userDetailsService() {
         return email -> this.userRepository.findByEmail(email).orElseThrow(() ->new UsernameNotFoundException("User not found"));
     }
+
+
     public ResponseCreateUser handleCreateUser(User user) {
         if (isEmailExist(user.getEmail())) {
             throw new EmailAlreadyExistsException("Email already exists: " + user.getEmail());
         }
 
 
-
         //save
         User currentUser =  this.userRepository.save(user);
+
+        // send email
+        if(user.getId() != null) {
+            // send email confirm here
+        }
 
         // convert response
         ResponseCreateUser resUser = ResponseCreateUser.builder()
