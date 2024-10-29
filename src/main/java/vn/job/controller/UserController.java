@@ -92,11 +92,26 @@ public class UserController {
     }
 
 
-//    @Operation(summary = "Change password", description = "API for change password user into databases")
+    //    @Operation(summary = "Change password", description = "API for change password user into databases")
 //    @PatchMapping("/change-password/{userId}")
 //    public ResponseData<Void> changePassword(@PathVariable @Min(1) long userId, @Min(1) @RequestBody String  password) {
 //        return new ResponseData<>(HttpStatus.ACCEPTED.value(), "User change successfully" );
 //    }
+    @Operation(summary = "Confirm email user", description = "API for confirm email user ")
+    @GetMapping("/confirm/{userId}")
+    public ResponseData<Void> confirmUser(@PathVariable @Min(1) long userId, String secretCode) {
+        log.info("Confirm user userId={}, secretCode={}", userId, secretCode);
+        try {
+            this.userService.confirmUser(userId, secretCode);
+            return new ResponseData<>(HttpStatus.ACCEPTED.value(), "User confirm successfully");
+        } catch (Exception e) {
+            log.error("errorMessage={}", e.getMessage(), e.getCause());
+            return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Confirm was failed");
+        } finally {
+
+        }
+    }
+
 
     @Operation(summary = "Delete user", description = "API for delete user from databases")
     @DeleteMapping("/delete/{userId}")

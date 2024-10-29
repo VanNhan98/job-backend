@@ -1,6 +1,7 @@
 package vn.job.service;
 
 import jakarta.mail.MessagingException;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -177,4 +178,8 @@ public class UserService {
     }
 
 
+    public void confirmUser( long userId, String secretCode) {
+        log.info("Confirm");
+
+    }
 }
