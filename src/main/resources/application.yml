@@ -1,13 +1,13 @@
 server:
   port: 8080
+
 spring:
   application:
     name: job-backend
   profiles:
     active: @spring.profiles.active@
 
-# Health check
-management:
+management: # Health check
   endpoints:
     web:
       exposure:
@@ -16,7 +16,7 @@ management:
 #    health:
 #      probes:
 #        enabled: true
-#  health: # config for EKS
+#  health:
 #    livenessState:
 #      enabled: true
 #    readinessState:
@@ -27,11 +27,17 @@ management:
 #        step: 5s
 #        enabled: true
 
-# Logging
 logging:
   level:
     root: INFO
     web: INFO
-#    org.springframework: INFO
-#    org.apache: OFF
-#    kafka: OFF
+    org.springframework: OFF
+  file:
+    name: ${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: job-backend-%d{yyyy-MM-dd}.%i.log
+      max-file-size: 1MB
+      total-size-cap: 10MB
+      max-history: 30
+      clean-history-on-start: true

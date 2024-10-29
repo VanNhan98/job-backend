@@ -38,12 +38,6 @@ public class TokenService {
         return this.tokenRepository.findByEmail(email).orElseThrow(() ->new UsernameNotFoundException("Email not found"));
     }
 
-    public Token findTokenByAccessToken(String accessToken) {
-        return this.tokenRepository.findByAccessToken(accessToken).orElseThrow(() -> new UsernameNotFoundException("Token not found")) ;// Tìm token theo accessToken
-    }
 
-    public Token findTokenByRefreshToken(String accessToken) {
-        return this.tokenRepository.findByRefreshToken(accessToken).orElseThrow(() -> new UsernameNotFoundException("Token not found")) ;// Tìm token theo accessToken
-    }
 
 }

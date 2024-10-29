@@ -1,24 +1,53 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: prod
+#  devtools:
+#    add-properties: true
+#  jpa:
+#    # Provide database platform that is being used
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      # New database is created when app starts and destroyed when app stops
+#      ddl-auto: none
+#    # Show sql when spring data jpa performs query
+#    show-sql: false
+#    properties:
+#      hibernate:
+#        # Format queries
+#        format_sql: true
+#
+#springdoc:
+#  api-docs:
+#    enabled: false
+#  swagger-ui:
+#    enabled: false
 spring:
   config:
     activate:
       on-profile: prod
-  devtools:
-    add-properties: true
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/demojob?allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:123456}
   jpa:
-    # Provide database platform that is being used
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      # New database is created when app starts and destroyed when app stops
-      ddl-auto: none
-    # Show sql when spring data jpa performs query
-    show-sql: false
     properties:
       hibernate:
-        # Format queries
-        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+  sendgrid:
+    api-key: ${SENDGRID_API_KEY:DUMMY-SENDGRID-API-KEY}
 
 springdoc:
   api-docs:
     enabled: false
   swagger-ui:
     enabled: false
+
+jwt:
+  expiryMinutes: 60
+  expiryDay: 14
+  accessKey: c2VjcmV0QGtleS5hcGlfaGFzX2JlZW5fZGVzaWduZWRfYnlfVGF5TFE=
+  refreshKey: 9k1jJAWAKQCnCEz1pwcPNegbHoLugf9hgEnn6sz5pFc=
