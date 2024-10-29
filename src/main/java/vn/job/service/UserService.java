@@ -1,5 +1,6 @@
 package vn.job.service;
 
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,7 @@ import vn.job.exception.IdInvalidException;
 import vn.job.model.User;
 import vn.job.repository.UserRepository;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,13 +31,15 @@ import java.util.stream.Collectors;
 public class UserService {
     private final UserRepository userRepository;
 
+    private final EmailService emailService;
+
 
     public UserDetailsService userDetailsService() {
         return email -> this.userRepository.findByEmail(email).orElseThrow(() ->new UsernameNotFoundException("User not found"));
     }
 
 
-    public ResponseCreateUser handleCreateUser(User user) {
+    public ResponseCreateUser handleCreateUser(User user) throws MessagingException, UnsupportedEncodingException {
         if (isEmailExist(user.getEmail())) {
             throw new EmailAlreadyExistsException("Email already exists: " + user.getEmail());
         }
@@ -47,6 +51,7 @@ public class UserService {
         // send email
         if(user.getId() != null) {
             // send email confirm here
+            emailService.sendConfirmLink(user.getEmail(), user.getId(), "secretCode");
         }
 
         // convert response

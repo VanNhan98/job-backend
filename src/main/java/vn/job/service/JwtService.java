@@ -57,7 +57,7 @@ public class JwtService {
                 .setSubject(user.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expiryMinutes * 60 * 1000 * expiryDay))
-                .signWith(getKey(ACCESS_TOKEN), SignatureAlgorithm.HS256)
+                .signWith(getKey(ACCESS_TOKEN), SignatureAlgorithm.HS512)
                 .compact();
     }
 
@@ -76,7 +76,7 @@ public class JwtService {
                 .setSubject(user.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * expiryDay))
-                .signWith(getKey(REFRESH_TOKEN), SignatureAlgorithm.HS256)
+                .signWith(getKey(REFRESH_TOKEN), SignatureAlgorithm.HS512)
                 .compact();
     }
 
