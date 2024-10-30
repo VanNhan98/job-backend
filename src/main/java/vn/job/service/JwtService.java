@@ -25,8 +25,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 
-import static vn.job.util.TokenType.ACCESS_TOKEN;
-import static vn.job.util.TokenType.REFRESH_TOKEN;
+import static vn.job.util.TokenType.*;
 
 @Service
 public class JwtService {
@@ -43,6 +42,9 @@ public class JwtService {
     @Value("${jwt.refreshKey}")
     private String refreshKey;
 
+    @Value("${jwt.secretKey}")
+    private String secretKey;
+
     public String generateAccessToken(UserDetails user, String email) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("email", email);
@@ -58,6 +60,7 @@ public class JwtService {
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expiryMinutes * 60 * 1000 * expiryDay))
                 .signWith(getKey(ACCESS_TOKEN), SignatureAlgorithm.HS512)
+
                 .compact();
     }
 
@@ -67,6 +70,7 @@ public class JwtService {
         claims.put("email", email);
         return generateRefreshToken(claims, user);
     }
+
 
 
     private String generateRefreshToken(Map<String, Object> claims, UserDetails user) {
@@ -81,15 +85,34 @@ public class JwtService {
     }
 
 
+    public String generateResetToken(User user, String email) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("email", email);
+        return generateResetToken(claims, user);
+    }
+
+    private String generateResetToken(Map<String, Object> claims, User user) {
+        return Jwts.builder()
+                .setClaims(claims)
+                .setSubject(user.getUsername())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * expiryDay))
+                .signWith(getKey(RESET_TOKEN), SignatureAlgorithm.HS512)
+                .compact();
+    }
+
 
     private Key getKey(TokenType type) {
-        byte[] bytes;
-        if(ACCESS_TOKEN.equals(type))
-      bytes = Decoders.BASE64.decode(accessKey);
-        else {
-            bytes = Decoders.BASE64.decode(refreshKey);
+        switch (type) {
+            case ACCESS_TOKEN:
+                return Keys.hmacShaKeyFor(accessKey.getBytes());
+            case REFRESH_TOKEN:
+                return Keys.hmacShaKeyFor(refreshKey.getBytes());
+            case RESET_TOKEN:
+                return Keys.hmacShaKeyFor(secretKey.getBytes());
+            default:
+                throw new IllegalStateException("Unknown token type: " + type);
         }
-        return Keys.hmacShaKeyFor(bytes);
     }
 
     public String extractEmail(String token, TokenType type) {

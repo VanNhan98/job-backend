@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.thymeleaf.context.Context;
@@ -61,6 +62,7 @@ public class EmailService {
         return "Email sent successfully";
     }
 
+    @Async
     public void sendConfirmLink(@Email(message = "email invalid format") String emailTo, Long id, String secretCode) throws MessagingException, UnsupportedEncodingException {
         log.info("Send email confirm account");
         MimeMessage message = mailSender.createMimeMessage();
@@ -77,5 +79,7 @@ public class EmailService {
         helper.setText(html, true);
         this.mailSender.send(message);
     }
+
+
 }
 

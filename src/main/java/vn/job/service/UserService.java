@@ -1,6 +1,7 @@
 package vn.job.service;
 
 import jakarta.mail.MessagingException;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -40,6 +41,7 @@ public class UserService {
 
 
     public ResponseCreateUser handleCreateUser(User user) throws MessagingException, UnsupportedEncodingException {
+        log.info("---------------create user---------------");
         if (isEmailExist(user.getEmail())) {
             throw new EmailAlreadyExistsException("Email already exists: " + user.getEmail());
         }
@@ -76,6 +78,7 @@ public class UserService {
     }
 
     public ResponseUpdateUser handleUpdateUser(User user) {
+        log.info("---------------update user---------------");
         User currentUser = handleGetUserById(user.getId());
         currentUser.setFirstName(user.getFirstName());
         currentUser.setLastName(user.getLastName());
@@ -108,6 +111,7 @@ public class UserService {
     }
 
     public ResPagination handleGetAllUsers(Specification<User> spec, Pageable pageable) {
+        log.info("---------------get all user---------------");
         Page<User> pageUser = this.userRepository.findAll(spec, pageable);
         ResPagination rs = new ResPagination();
         ResPagination.Meta mt = new ResPagination.Meta();
@@ -142,6 +146,7 @@ public class UserService {
     }
 
     public ResUserDetail handleGetUser(long id) {
+        log.info("---------------get detail user---------------");
         User currentUser = handleGetUserById(id);
         ResUserDetail resUser = ResUserDetail.builder()
                 .id(currentUser.getId())
@@ -163,6 +168,7 @@ public class UserService {
         return resUser;
     }
     public void handleDeleteUserById(long id) {
+        log.info("---------------delete user---------------");
         User currentUser = handleGetUserById(id);
         this.userRepository.deleteById(currentUser.getId());
         log.info("Delete successfully");
@@ -177,4 +183,12 @@ public class UserService {
     }
 
 
+    public void confirmUser( long userId, String secretCode) {
+        log.info("Confirm");
+
+    }
+
+    public User findUserByEmail(String email) {
+        return this.userRepository.findByEmail(email).orElseThrow(() -> new IdInvalidException("User not found"));
+    }
 }

@@ -6,13 +6,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vn.job.dto.request.LoginRequest;
+import vn.job.dto.request.ResetPasswordDTO;
 import vn.job.dto.response.TokenResponse;
 import vn.job.service.AuthService;
 
@@ -41,4 +41,24 @@ public class AuthController {
     public ResponseEntity<String> logout(HttpServletRequest request){
         return new ResponseEntity<>(authService.logout(request), HttpStatus.OK);
     }
+
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> forgotPassword(@RequestBody String email){
+        return new ResponseEntity<>(authService.forgotPassword(email), HttpStatus.OK);
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<String> resetPassword(@RequestBody String secretKey){
+        return new ResponseEntity<>(authService.resetPassword(secretKey), HttpStatus.OK);
+    }
+
+
+    @PostMapping("/change-password")
+    public ResponseEntity<String> changePassword(@RequestBody ResetPasswordDTO request) {
+        return new ResponseEntity<>(authService.changePassword(request), HttpStatus.OK);
+    }
+
+
+
 }
