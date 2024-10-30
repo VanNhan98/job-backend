@@ -1,6 +1,7 @@
 package vn.job.service;
 
 
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,7 @@ import vn.job.model.User;
 import vn.job.repository.UserRepository;
 import vn.job.util.TokenType;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 
 @Service
@@ -36,6 +38,8 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
 
     private final UserService userService;
+
+    private final EmailService emailService;
 
     public TokenResponse authenticate(LoginRequest request) {
 
@@ -110,7 +114,7 @@ public class AuthService {
 
     }
 
-    public String forgotPassword(String email) {
+    public String forgotPassword(String email) throws MessagingException, UnsupportedEncodingException {
         // check email exist or not
         User user = this.userService.findUserByEmail(email);
 
@@ -122,13 +126,15 @@ public class AuthService {
         // generate reset token
          String resetToken = jwtService.generateResetToken(user,email );
 
-        //TODO Send email confirmLink
-        String confirmLink = String.format("curl --location 'http://localhost:8080/auth/reset-password' \\\n" +
-                "--header 'Content-Type: application/json' \\\n" +
-                "--data '%s'",resetToken);
+        // Gửi email với link reset password
+        try {
+            this.emailService.sendResetPasswordLink(email, resetToken);
+        } catch (MessagingException | UnsupportedEncodingException e) {
+            log.error("Failed to send reset password email to {}", email, e);
+            throw new RuntimeException("Failed to send reset password email");
+        }
 
-        log.info("confirmLink={}",confirmLink);
-        return "sent";
+        return "Password reset link has been sent successfully";
     }
 
     public String resetPassword(String secretKey) {
@@ -142,7 +148,7 @@ public class AuthService {
             throw new InvalidDataException("Token is invalid");
         }
 
-        return "reset";
+        return "Reset successfully";
     }
 
     public String changePassword(ResetPasswordDTO request) {
@@ -154,7 +160,7 @@ public class AuthService {
         }
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         this.userRepository.save(user);
-        return "changed";
+        return "Changed password successfully";
     }
 
     private User isValidUserByToken(String secretKey) {

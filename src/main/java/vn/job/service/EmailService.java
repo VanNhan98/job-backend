@@ -17,6 +17,7 @@ import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -68,7 +69,7 @@ public class EmailService {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
         Context context =   new Context();
-        String linkConfirm = "user/id/secretCode";
+        String linkConfirm = String.format("http://localhost:8080/user/confirm/%s?secretCode=%s", id, secretCode);
         Map<String, Object> properties = new HashMap<String, Object>();
         properties.put("linkConfirm", linkConfirm);
         context.setVariables(properties);
@@ -78,8 +79,27 @@ public class EmailService {
         String html = this.templateEngine.process("confirm-email.html", context);
         helper.setText(html, true);
         this.mailSender.send(message);
+        log.info("Confirm account successfully to {}", emailTo);
     }
 
+    @Async
+    public void sendResetPasswordLink( String emailTo   , String secretCode) throws MessagingException, UnsupportedEncodingException {
+        log.info("Sending reset password email to {}", emailTo);
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.name());
+        Context context =   new Context();
 
+        String resetPasswordLink = String.format("http://localhost:8080/auth/reset-password?secretKey=%s", secretCode);
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("resetPasswordLink", resetPasswordLink);
+        context.setVariables(properties);
+        helper.setFrom(emailFrom,"Văn Nhân");
+        helper.setSubject("Please confirm reset password");
+        helper.setTo(emailTo);
+        String html = this.templateEngine.process("reset-password-email.html", context);
+        helper.setText(html, true);
+        this.mailSender.send(message);
+        log.info("Reset password email sent successfully to {}", emailTo);
+    }
 }
 

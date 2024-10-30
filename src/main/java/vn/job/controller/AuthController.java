@@ -1,20 +1,22 @@
 package vn.job.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import vn.job.dto.request.LoginRequest;
 import vn.job.dto.request.ResetPasswordDTO;
 import vn.job.dto.response.TokenResponse;
+import vn.job.dto.response.error.ResponseData;
+import vn.job.dto.response.error.ResponseError;
 import vn.job.service.AuthService;
+
+import java.io.UnsupportedEncodingException;
 
 @RestController
 @RequestMapping("/auth")
@@ -28,8 +30,15 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/access")
-    public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest request) {
-        return new ResponseEntity<>(authService.authenticate(request), HttpStatus.OK);
+    public ResponseData<TokenResponse> login(@RequestBody LoginRequest request) {
+
+        log.info("Login user request={}", request);
+        try {
+            return new ResponseData<>(HttpStatus.OK.value(),"Login successfully",authService.authenticate(request));
+        } catch (Exception e) {
+            log.error("errorMessage= {} ", e.getMessage(), e.getCause());
+            return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Login user failed");
+        }
     }
 
     @PostMapping("/refresh")
@@ -38,27 +47,26 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<String> logout(HttpServletRequest request){
+    public ResponseEntity<String> logout(HttpServletRequest request) {
         return new ResponseEntity<>(authService.logout(request), HttpStatus.OK);
     }
 
 
     @PostMapping("/forgot-password")
-    public ResponseEntity<String> forgotPassword(@RequestBody String email){
-        return new ResponseEntity<>(authService.forgotPassword(email), HttpStatus.OK);
+    public ResponseData<String> forgotPassword(@RequestBody String email) throws MessagingException, UnsupportedEncodingException {
+        return new ResponseData<>(HttpStatus.OK.value(), authService.forgotPassword(email));
     }
 
-    @PostMapping("/reset-password")
-    public ResponseEntity<String> resetPassword(@RequestBody String secretKey){
-        return new ResponseEntity<>(authService.resetPassword(secretKey), HttpStatus.OK);
-    }
 
+    @GetMapping("/reset-password")
+    public ResponseData<String> resetPassword(@RequestParam String secretKey) {
+        return new ResponseData<>(HttpStatus.OK.value(),authService.resetPassword(secretKey));
+    }
 
     @PostMapping("/change-password")
-    public ResponseEntity<String> changePassword(@RequestBody ResetPasswordDTO request) {
-        return new ResponseEntity<>(authService.changePassword(request), HttpStatus.OK);
+    public ResponseData<String> changePassword(@RequestBody ResetPasswordDTO request) {
+        return new ResponseData<>(HttpStatus.OK.value(), authService.changePassword(request));
     }
-
 
 
 }
