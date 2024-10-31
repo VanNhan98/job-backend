@@ -38,7 +38,7 @@ public class UserController {
     @Operation(summary = "Create new user", description = "API for insert user into databases")
     @PostMapping("/add")
     public ResponseData<ResponseCreateUser> addUser(@Valid @RequestBody User user) {
-
+        log.info("Request create user={}", user.getUsername());
         try {
             String hashPassWord = this.passwordEncoder.encode(user.getPassword());
             user.setPassword(hashPassWord);
@@ -54,6 +54,7 @@ public class UserController {
     @Operation(summary = "Update user", description = "API for update user into databases")
     @PutMapping("/update")
     public ResponseData<ResponseUpdateUser> updateUser(@Valid @RequestBody User reqUser) {
+        log.info("Request update user={}", reqUser.getId());
         try {
             ResponseUpdateUser currentUser = userService.handleUpdateUser(reqUser);
             return new ResponseData<>(HttpStatus.ACCEPTED.value(), "User updated successfully", currentUser);
@@ -67,6 +68,7 @@ public class UserController {
     @Operation(summary = "Get user detail", description = "API get user by id from databases")
     @GetMapping("/{userId}")
     public ResponseData<ResUserDetail> getUserById(@PathVariable long userId) {
+        log.info("Request detail user={}", userId);
         try {
             ResUserDetail currentUser = this.userService.handleGetUser(userId);
             return new ResponseData<>(HttpStatus.OK.value(), "Get user successfully", currentUser);
@@ -81,6 +83,7 @@ public class UserController {
     @GetMapping("/list")
     public ResponseData<ResPagination> getAllUsers(@Filter Specification<User> spec, Pageable pageable
     ) {
+        log.info("Request list user");
         try {
             ResPagination currentUser = this.userService.handleGetAllUsers(spec, pageable);
             return new ResponseData<>(HttpStatus.OK.value(), "Get user successfully", currentUser);

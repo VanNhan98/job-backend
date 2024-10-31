@@ -25,15 +25,17 @@ public class SecurityConfig {
     private final CustomizeFilter preFilter;
 
     private String[] WHITE_LIST = {
-            "/", "/auth/**","/user/confirm/**"
+            "/", "/auth/**","/user/confirm/**","/user/**"
     };
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http,CustomAuthenticationEntryPoint customAuthenticationEntryPoint) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize.requestMatchers(WHITE_LIST).permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(exception -> exception
+                .authenticationEntryPoint(customAuthenticationEntryPoint))
                 .authenticationProvider(provider()).addFilterBefore(preFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
