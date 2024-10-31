@@ -2,10 +2,14 @@ package vn.job.service;
 
 
 import jakarta.mail.MessagingException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -41,7 +45,7 @@ public class AuthService {
 
     private final EmailService emailService;
 
-    public TokenResponse authenticate(LoginRequest request) {
+    public TokenResponse authenticate(LoginRequest request, HttpServletResponse response) {
 
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
@@ -59,6 +63,18 @@ public class AuthService {
                 .build()
         );
 
+        // Tạo cookie chứa refreshToken
+        ResponseCookie refreshCookie = ResponseCookie.from("refresh_token", refreshToken)
+                .httpOnly(true)
+                .secure(true)
+                .path("/")
+                .maxAge(3600 * 24 * 30)
+                .build();
+
+        // Set cookie vào response
+        response.addHeader(HttpHeaders.SET_COOKIE, refreshCookie.toString());
+
+        // response fe
         return TokenResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
@@ -68,8 +84,18 @@ public class AuthService {
 
     public TokenResponse refresh(HttpServletRequest request) {
         log.info("---------------refresh password---------------");
+
+        String refreshToken = null;
+        if (request.getCookies() != null) {
+            for (Cookie cookie : request.getCookies()) {
+                if ("refresh_token".equals(cookie.getName())) {
+                    refreshToken = cookie.getValue();
+                    break;
+                }
+            }
+        }
+
         // validate
-        String refreshToken = request.getHeader("x-token");
         if (StringUtils.isBlank(refreshToken)) {
             throw new InvalidDataException("Token must be not blank");
         }

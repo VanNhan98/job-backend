@@ -3,6 +3,7 @@ package vn.job.controller;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -30,11 +31,11 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/access")
-    public ResponseData<TokenResponse> login(@RequestBody LoginRequest request) {
+    public ResponseData<TokenResponse> login(@RequestBody LoginRequest request, HttpServletResponse response) {
 
         log.info("Login user request={}", request);
         try {
-            return new ResponseData<>(HttpStatus.OK.value(),"Login successfully",authService.authenticate(request));
+            return new ResponseData<>(HttpStatus.OK.value(),"Login successfully",authService.authenticate(request,response));
         } catch (Exception e) {
             log.error("errorMessage= {} ", e.getMessage(), e.getCause());
             return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Login user failed");
