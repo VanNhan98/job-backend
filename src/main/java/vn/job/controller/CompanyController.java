@@ -23,7 +23,7 @@ import vn.job.service.CompanyService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/companies")
 @Validated
 @Slf4j
 @RequiredArgsConstructor

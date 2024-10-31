@@ -24,7 +24,7 @@ import vn.job.model.User;
 import vn.job.service.UserService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 @Validated
 @Slf4j
 @RequiredArgsConstructor

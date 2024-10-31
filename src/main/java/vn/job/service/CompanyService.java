@@ -49,6 +49,7 @@ public class CompanyService {
 
 
     public ResPagination handleGetAllCompanies(Specification<Company> spec, Pageable pageable) {
+        log.info("---------------get list company---------------");
         Page<Company> pageCompany = this.companyRepository.findAll(spec, pageable);
         ResPagination rs = new ResPagination();
         ResPagination.Meta mt = new ResPagination.Meta();
