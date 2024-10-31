@@ -6,8 +6,11 @@ import jakarta.validation.ConstraintValidatorContext;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class EnumValueValidator implements ConstraintValidator<EnumValue, CharSequence> {
-    private List acceptedValues;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+public class EnumValueValidator implements ConstraintValidator<EnumValue, Enum<?>> {
+    private List<String> acceptedValues;
 
     @Override
     public void initialize(EnumValue enumValue) {
@@ -17,11 +20,11 @@ public class EnumValueValidator implements ConstraintValidator<EnumValue, CharSe
     }
 
     @Override
-    public boolean isValid(CharSequence value, ConstraintValidatorContext context) {
+    public boolean isValid(Enum<?> value, ConstraintValidatorContext context) {
         if (value == null) {
             return true;
         }
 
-        return acceptedValues.contains(value.toString().toUpperCase());
+        return acceptedValues.contains(value.name().toUpperCase());
     }
 }

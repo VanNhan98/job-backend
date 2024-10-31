@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 
 import java.util.Date;
 import java.util.List;
@@ -78,5 +79,25 @@ public class GlobalExceptionHandler {
         errorResponse.setMessage("URL may not exist");
         return errorResponse;
     }
+
+    // handle error convert json
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleHttpMessageNotReadableException(HttpMessageNotReadableException e, WebRequest request) {
+        ErrorResponse errorResponse = new ErrorResponse();
+        errorResponse.setTimestamp(new Date());
+        errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorResponse.setPath(request.getDescription(false).replace("uri=", ""));
+        errorResponse.setError("Invalid input format");
+
+        String message = "";
+        if (e.getCause() != null) {
+            message = e.getCause().getMessage();
+        }
+        errorResponse.setMessage("JSON parse error: " + message);
+
+        return errorResponse;
+    }
+
  
 }

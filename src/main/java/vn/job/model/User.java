@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import vn.job.util.EnumValue;
 import vn.job.util.Gender;
 import vn.job.util.PhoneNumber;
 import java.io.Serializable;
@@ -40,7 +41,7 @@ public class User extends BaseEntity implements UserDetails, Serializable
     private String dateOfBirth;
 
     @NotNull(message = "gender must be not null")
-//    @EnumValue(name = "gender", enumClass = Gender.class)
+    @EnumValue(name = "gender", enumClass = Gender.class)
     @Enumerated(EnumType.STRING)
     private Gender  gender;
 
@@ -73,12 +74,7 @@ public class User extends BaseEntity implements UserDetails, Serializable
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        return roles.stream()
-//                .map(role -> new SimpleGrantedAuthority(role.getName()))
-//                .collect(Collectors.toList());
-//    }
+
 
     /**
      * Indicates whether the user's account has expired. An expired account cannot be authenticated.

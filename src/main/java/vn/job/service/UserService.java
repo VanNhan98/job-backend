@@ -88,7 +88,6 @@ public class UserService {
         currentUser.setUsername(user.getUsername());
         currentUser.setAddress(user.getAddress());
         currentUser.setLanguage(user.getLanguage());
-        currentUser.setEmail(user.getEmail());
 
         //save
         User updatedUser = this.userRepository.save(currentUser);
