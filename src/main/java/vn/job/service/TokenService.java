@@ -3,7 +3,6 @@ package vn.job.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import vn.job.model.Token;
 import vn.job.repository.TokenRepository;
@@ -38,10 +37,22 @@ public class TokenService {
         return "Token deleted successfully";
     }
 
-    public Token findTokenByEmail(String email) {
-        return this.tokenRepository.findByEmail(email).orElseThrow(() ->new UsernameNotFoundException("Email not found"));
+    public Optional<Token> findTokenByEmail(String email) {
+        return this.tokenRepository.findByEmail(email);
     }
 
 
+    public void updateToken(Token token) {
+        log.info("---------------update token---------------");
+        Optional<Token> existingToken = findTokenByEmail(token.getEmail());
+        if (existingToken.isPresent()) {
+            Token oldToken = existingToken.get();
+            oldToken.setAccessToken(token.getAccessToken());
+            oldToken.setRefreshToken(token.getRefreshToken());
+            saveToken(oldToken); // cập nhật token đã tồn tại
+        } else {
+            saveToken(token); // lưu mới nếu chưa có
+        }
+    }
 
 }

@@ -1,7 +1,8 @@
 package vn.job.exception;
 
 
-import jakarta.validation.ConstraintViolationException;
+import com.fasterxml.jackson.core.JsonParseException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     // handle hand
@@ -80,7 +82,7 @@ public class GlobalExceptionHandler {
         return errorResponse;
     }
 
-    // handle error convert json
+    // handle error convert json (enum)
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleHttpMessageNotReadableException(HttpMessageNotReadableException e, WebRequest request) {
@@ -98,6 +100,8 @@ public class GlobalExceptionHandler {
 
         return errorResponse;
     }
+
+
 
  
 }

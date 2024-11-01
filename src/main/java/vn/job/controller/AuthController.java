@@ -43,13 +43,19 @@ public class AuthController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<TokenResponse> refresh(HttpServletRequest request) {
-        return new ResponseEntity<>(authService.refresh(request), HttpStatus.OK);
+    public ResponseData<TokenResponse> refresh(HttpServletRequest request) {
+        try {
+            return new ResponseData<>(HttpStatus.OK.value(),"Refresh successfully",authService.refresh(request) );
+
+        }catch (Exception e) {
+            log.error("errorMessage= {} ", e.getMessage(), e.getCause());
+            return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Refresh failed");
+        }
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<String> logout(HttpServletRequest request) {
-        return new ResponseEntity<>(authService.logout(request), HttpStatus.OK);
+    public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
+        return new ResponseEntity<>(authService.logout(request,response), HttpStatus.OK);
     }
 
 
