@@ -12,12 +12,17 @@ import vn.job.exception.IdInvalidException;
 import vn.job.model.Company;
 import vn.job.model.User;
 import vn.job.repository.CompanyRepository;
+import vn.job.repository.UserRepository;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class CompanyService {
     private  final CompanyRepository companyRepository;
+
+    private final UserRepository userRepository;
 
     public Company handleCreateCompany(Company company) {
         log.info("---------------create company---------------");
@@ -39,6 +44,10 @@ public class CompanyService {
     public void handleDeleteCompany(long id) {
         log.info("---------------delete company---------------");
         Company currentCompany = handleGetCompanyById(id);
+        if(currentCompany != null) {
+            List<User> users = this.userRepository.findByCompany(currentCompany);
+            this.userRepository.deleteAll(users);
+        }
         this.companyRepository.deleteById(currentCompany.getId());
         log.info("Delete successfully");
     }
