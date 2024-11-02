@@ -63,6 +63,9 @@ public class User extends BaseEntity implements UserDetails, Serializable
 
     private String language;
 
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 
     /**
      * @return Returns the authorities granted to the user. Cannot return null.

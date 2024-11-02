@@ -3,6 +3,7 @@ package vn.job.dto.response;
 import jakarta.persistence.PreUpdate;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import vn.job.service.JwtService;
 
 import java.io.Serializable;
@@ -28,9 +29,18 @@ public class ResponseUpdateUser implements Serializable {
 
     private String language;
 
+    private CompanyUser company;
+
     private Date updatedAt;
 
     private String updatedBy;
 
+
+    @Getter
+    @Setter
+    public static class CompanyUser {
+        private long id;
+        private String name;
+    }
 
 }

@@ -5,6 +5,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import vn.job.service.JwtService;
 
@@ -34,8 +35,18 @@ public class ResponseCreateUser implements Serializable {
 
     private String language;
 
+    private CompanyUser company;
+
     private Date createdAt;
 
     private String createdBy;
+
+
+    @Getter
+    @Setter
+    public static class  CompanyUser {
+        private long id;
+        private String name;
+    }
 
 }

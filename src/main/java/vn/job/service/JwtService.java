@@ -8,6 +8,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
@@ -28,6 +29,7 @@ import java.util.function.Function;
 import static vn.job.util.TokenType.*;
 
 @Service
+@Slf4j
 public class JwtService {
 
     @Value("${jwt.expiryMinutes}")
@@ -70,7 +72,6 @@ public class JwtService {
         claims.put("email", email);
         return generateRefreshToken(claims, user);
     }
-
 
 
     private String generateRefreshToken(Map<String, Object> claims, UserDetails user) {
@@ -125,35 +126,37 @@ public class JwtService {
     }
 
 
-
-    public boolean isValid(String token,TokenType type, UserDetails user) {
-        final String userNameFromToken  = extractUsername(token, type);
+    public boolean isValid(String token, TokenType type, UserDetails user) {
+        final String userNameFromToken = extractUsername(token, type);
         return userNameFromToken.equals(user.getUsername()) && !isTokenExpired(token, type);
     }
 
 
-    private <T> T extractClaim(String token, TokenType type,Function<Claims, T> claimResolver) {
-        final Claims claims = extraAllClaim(token,type);
+    private <T> T extractClaim(String token, TokenType type, Function<Claims, T> claimResolver) {
+        final Claims claims = extraAllClaim(token, type);
         return claimResolver.apply(claims);
     }
 
     private Claims extraAllClaim(String token, TokenType type) {
         try {
             return Jwts.parserBuilder().setSigningKey(getKey(type)).build().parseClaimsJws(token).getBody();
-        } catch (SignatureException | ExpiredJwtException e) { // Invalid signature or expired token
-            throw new AccessDeniedException("Access denied: " + e.getMessage());
+        } catch (SignatureException e) {
+            log.error("Invalid JWT signature: {}", e.getMessage());
+            throw new AccessDeniedException("Invalid JWT signature");
+        } catch (ExpiredJwtException e) {
+            log.error("JWT expired: {}", e.getMessage());
+            throw new AccessDeniedException("JWT expired");
         }
     }
 
 
     private boolean isTokenExpired(String token, TokenType type) {
-        return extractExpiration(token,type).before(new Date()) ;
+        return extractExpiration(token, type).before(new Date());
     }
 
     private Date extractExpiration(String token, TokenType type) {
         return extractClaim(token, type, Claims::getExpiration);
     }
-
 
 
     public static Optional<String> getCurrentUserLogin() {
