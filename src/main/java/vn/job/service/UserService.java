@@ -17,7 +17,7 @@ import vn.job.dto.response.ResPagination;
 import vn.job.dto.response.ResUserDetail;
 import vn.job.dto.response.ResponseCreateUser;
 import vn.job.dto.response.ResponseUpdateUser;
-import vn.job.exception.EmailAlreadyExistsException;
+import vn.job.exception.EntityAlreadyExistsException;
 import vn.job.exception.IdInvalidException;
 import vn.job.model.Company;
 import vn.job.model.User;
@@ -47,7 +47,7 @@ public class UserService {
     public ResponseCreateUser handleCreateUser(User user) throws MessagingException, UnsupportedEncodingException {
         log.info("---------------create user---------------");
         if (isEmailExist(user.getEmail())) {
-            throw new EmailAlreadyExistsException("Email already exists: " + user.getEmail());
+            throw new EntityAlreadyExistsException("Email already exists: " + user.getEmail());
         }
 
         // check company

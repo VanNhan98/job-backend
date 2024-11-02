@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "tbl_skill")
 public class Skill extends BaseEntity {
-    @NotBlank(message = "name must be not blank")
+    @NotBlank(message = "name must be not empty")
     private String name;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "skills")
