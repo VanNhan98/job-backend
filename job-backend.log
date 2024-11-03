@@ -1052,3 +1052,652 @@
 2024-11-03T08:56:12.420+07:00  INFO 16116 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
 2024-11-03T08:56:12.432+07:00  INFO 16116 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
 2024-11-03T08:56:12.433+07:00  INFO 16116 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-03T08:56:24.490+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 2476 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T08:56:24.492+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T08:56:26.244+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T08:56:26.244+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T08:56:26.283+07:00  INFO 2476 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T08:56:26.520+07:00  INFO 2476 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T08:56:26.559+07:00  INFO 2476 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T08:56:26.583+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T08:56:26.810+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T08:56:26.914+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6eecde70
+2024-11-03T08:56:26.915+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T08:56:26.948+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T08:56:26.948+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T08:56:27.749+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T08:56:28.901+07:00  INFO 2476 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T08:56:29.603+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.467 seconds (process running for 6.05)
+2024-11-03T08:56:30.085+07:00  INFO 2476 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T08:56:30.085+07:00  INFO 2476 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T08:56:30.087+07:00  INFO 2476 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-03T08:56:45.811+07:00  INFO 2476 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T08:56:45.811+07:00  INFO 2476 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6ImdwbGdhcmVuYUBnbWFpbC5jb20iLCJzdWIiOiJWYW4gTmhhbiIsImlhdCI6MTczMDU2NTE5NSwiZXhwIjoxNzMwNjE1NTk1fQ.xoSzzydmGHsOmJczeH59k-bRt0ame7MyAsYhyyHyM7jpCGMZ_JcCGW7OXwZkXXQXxuQ1swbqDj328UaEdvdeVA
+2024-11-03T08:56:45.812+07:00  INFO 2476 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : token: eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6ImdwbGdhcmVuYUBnbWFpbC5jb20iLCJzdWIiOiJWYW4gTmhhbiIsImlhdCI6MTczMDU2NTE5NSwiZXhwIjoxNzMwNjE1NTk1fQ.xoSzzydmGHsOmJczeH59k-bRt0ame7MyAsYhyyHyM7jpCGMZ_JcCGW7OXwZkXXQXxuQ1swbqDj328UaEdvdeVA
+2024-11-03T08:56:45.837+07:00  INFO 2476 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : email: gplgarena@gmail.com
+2024-11-03T08:56:45.996+07:00  INFO 2476 --- [job-backend] [http-nio-8080-exec-1] vn.job.controller.SkillController        : Request delete skill=5
+2024-11-03T08:56:45.997+07:00  INFO 2476 --- [job-backend] [http-nio-8080-exec-1] vn.job.service.SkillService              : ---------------delete skill---------------
+2024-11-03T09:56:13.227+07:00  INFO 2476 --- [job-backend] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T09:56:13.230+07:00  INFO 2476 --- [job-backend] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T09:56:13.321+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 2476 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T09:56:13.321+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T09:56:13.927+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T09:56:13.927+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T09:56:13.948+07:00  INFO 2476 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T09:56:14.073+07:00  INFO 2476 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T09:56:14.075+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T09:56:14.085+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-11-03T09:56:14.088+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46aadfa5
+2024-11-03T09:56:14.089+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-11-03T09:56:14.089+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T09:56:14.089+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T09:56:14.231+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T09:56:14.859+07:00  INFO 2476 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T09:56:15.302+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 2.015 seconds (process running for 3591.75)
+2024-11-03T10:00:10.502+07:00  INFO 2476 --- [job-backend] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-11-03T10:00:10.505+07:00  INFO 2476 --- [job-backend] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-11-03T10:00:10.584+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 2476 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T10:00:10.584+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T10:00:11.177+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T10:00:11.177+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T10:00:11.195+07:00  INFO 2476 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T10:00:11.307+07:00  INFO 2476 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T10:00:11.309+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T10:00:11.317+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-11-03T10:00:11.319+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7fdf7514
+2024-11-03T10:00:11.320+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-11-03T10:00:11.320+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T10:00:11.320+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T10:00:11.449+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T10:00:12.107+07:00  INFO 2476 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T10:00:12.659+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 2.099 seconds (process running for 3829.107)
+2024-11-03T10:00:17.119+07:00  INFO 2476 --- [job-backend] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-11-03T10:00:17.121+07:00  INFO 2476 --- [job-backend] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-11-03T10:00:17.201+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 2476 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T10:00:17.201+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T10:00:17.703+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T10:00:17.703+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T10:00:17.719+07:00  INFO 2476 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T10:00:17.827+07:00  INFO 2476 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T10:00:17.829+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T10:00:17.835+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-11-03T10:00:17.837+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@119d4921
+2024-11-03T10:00:17.838+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-11-03T10:00:17.838+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T10:00:17.838+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T10:00:17.923+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T10:00:18.465+07:00  INFO 2476 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T10:00:18.959+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 1.783 seconds (process running for 3835.407)
+2024-11-03T10:00:28.549+07:00  INFO 2476 --- [job-backend] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-11-03T10:00:28.551+07:00  INFO 2476 --- [job-backend] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-11-03T10:00:28.634+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 2476 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T10:00:28.635+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T10:00:29.210+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T10:00:29.210+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T10:00:29.229+07:00  INFO 2476 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T10:00:29.374+07:00  INFO 2476 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T10:00:29.376+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T10:00:29.381+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-11-03T10:00:29.384+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@577d9f4d
+2024-11-03T10:00:29.384+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-11-03T10:00:29.385+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T10:00:29.385+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T10:00:29.487+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T10:00:30.031+07:00  INFO 2476 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T10:00:30.476+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 1.864 seconds (process running for 3846.923)
+2024-11-03T11:16:39.104+07:00  INFO 2476 --- [job-backend] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-11-03T11:16:39.107+07:00  INFO 2476 --- [job-backend] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2024-11-03T11:16:39.192+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 2476 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:16:39.192+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:16:39.753+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:16:39.754+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:16:39.799+07:00  INFO 2476 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:16:39.919+07:00  INFO 2476 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:16:39.921+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:16:39.932+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-11-03T11:16:39.936+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7fd9f746
+2024-11-03T11:16:39.936+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-11-03T11:16:39.936+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:16:39.937+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:16:40.104+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:16:40.735+07:00  INFO 2476 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:16:41.183+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 2.015 seconds (process running for 8417.63)
+2024-11-03T11:17:08.090+07:00  INFO 2476 --- [job-backend] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2024-11-03T11:17:08.092+07:00  INFO 2476 --- [job-backend] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2024-11-03T11:17:08.178+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 2476 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:17:08.178+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:17:08.670+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:17:08.670+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:17:08.697+07:00  INFO 2476 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:17:08.843+07:00  INFO 2476 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:17:08.845+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:17:08.852+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2024-11-03T11:17:08.855+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@26baffc5
+2024-11-03T11:17:08.855+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2024-11-03T11:17:08.856+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:17:08.856+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:17:08.971+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:17:09.552+07:00  INFO 2476 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:17:09.936+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 1.784 seconds (process running for 8446.383)
+2024-11-03T11:17:35.846+07:00  INFO 2476 --- [job-backend] [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2024-11-03T11:17:35.848+07:00  INFO 2476 --- [job-backend] [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2024-11-03T11:17:35.927+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 2476 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:17:35.927+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:17:36.379+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:17:36.379+07:00  INFO 2476 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:17:36.410+07:00  INFO 2476 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:17:36.536+07:00  INFO 2476 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:17:36.538+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:17:36.544+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2024-11-03T11:17:36.548+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@12dd11e1
+2024-11-03T11:17:36.548+07:00  INFO 2476 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2024-11-03T11:17:36.548+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:17:36.548+07:00  WARN 2476 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:17:36.662+07:00  INFO 2476 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:17:37.227+07:00  INFO 2476 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:17:37.623+07:00  INFO 2476 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 1.716 seconds (process running for 8474.071)
+2024-11-03T11:18:23.239+07:00  INFO 2476 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2024-11-03T11:18:23.241+07:00  INFO 2476 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2024-11-03T11:18:25.055+07:00  INFO 13068 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 13068 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:18:25.057+07:00  INFO 13068 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:18:27.109+07:00  INFO 13068 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:18:27.110+07:00  INFO 13068 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:18:27.155+07:00  INFO 13068 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:18:27.442+07:00  INFO 13068 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:18:27.485+07:00  INFO 13068 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:18:27.511+07:00  INFO 13068 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:18:27.759+07:00  INFO 13068 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:18:27.865+07:00  INFO 13068 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1dd68f23
+2024-11-03T11:18:27.867+07:00  INFO 13068 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:18:27.897+07:00  WARN 13068 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:18:27.898+07:00  WARN 13068 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:18:28.739+07:00  INFO 13068 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:18:29.961+07:00  INFO 13068 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:18:30.691+07:00  INFO 13068 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 6.034 seconds (process running for 6.704)
+2024-11-03T11:18:30.924+07:00  INFO 13068 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:18:30.924+07:00  INFO 13068 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:18:30.926+07:00  INFO 13068 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-03T11:19:08.923+07:00  INFO 13068 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:19:08.928+07:00  INFO 13068 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:19:12.116+07:00  INFO 1292 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 1292 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:19:12.117+07:00  INFO 1292 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:19:13.980+07:00  INFO 1292 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:19:13.981+07:00  INFO 1292 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:19:14.033+07:00  INFO 1292 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:19:14.351+07:00  INFO 1292 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:19:14.403+07:00  INFO 1292 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:19:14.429+07:00  INFO 1292 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:19:14.671+07:00  INFO 1292 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:19:14.778+07:00  INFO 1292 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@38c57c89
+2024-11-03T11:19:14.779+07:00  INFO 1292 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:19:14.811+07:00  WARN 1292 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:19:14.812+07:00  WARN 1292 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:19:15.622+07:00  INFO 1292 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:19:16.829+07:00  INFO 1292 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:19:17.576+07:00  INFO 1292 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.853 seconds (process running for 6.416)
+2024-11-03T11:19:17.964+07:00  INFO 1292 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:19:17.964+07:00  INFO 1292 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:19:17.966+07:00  INFO 1292 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-03T11:19:36.131+07:00  INFO 1292 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:19:36.131+07:00  INFO 1292 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:19:36.248+07:00  INFO 1292 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:19:36.248+07:00  INFO 1292 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:23:45.666+07:00  INFO 1292 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:23:45.667+07:00  INFO 1292 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:23:45.715+07:00  INFO 1292 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:23:45.715+07:00  INFO 1292 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:24:27.079+07:00  INFO 1292 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:24:27.085+07:00  INFO 1292 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:24:31.790+07:00  INFO 15504 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 15504 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:24:31.792+07:00  INFO 15504 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:24:33.732+07:00  INFO 15504 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:24:33.733+07:00  INFO 15504 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:24:33.775+07:00  INFO 15504 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:24:34.022+07:00  INFO 15504 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:24:34.065+07:00  INFO 15504 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:24:34.089+07:00  INFO 15504 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:24:34.342+07:00  INFO 15504 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:24:34.452+07:00  INFO 15504 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a3ae885
+2024-11-03T11:24:34.454+07:00  INFO 15504 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:24:34.488+07:00  WARN 15504 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:24:34.489+07:00  WARN 15504 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:24:35.387+07:00  INFO 15504 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:24:36.777+07:00  INFO 15504 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:24:37.574+07:00  INFO 15504 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 6.24 seconds (process running for 6.944)
+2024-11-03T11:24:37.618+07:00  INFO 15504 --- [job-backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:24:37.618+07:00  INFO 15504 --- [job-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:24:37.620+07:00  INFO 15504 --- [job-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-03T11:24:37.646+07:00  INFO 15504 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:24:37.647+07:00  INFO 15504 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:24:37.698+07:00  WARN 15504 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/nhan.txt.]
+2024-11-03T11:24:37.732+07:00  INFO 15504 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:24:37.732+07:00  INFO 15504 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:37:32.629+07:00  INFO 15504 --- [job-backend] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:37:32.635+07:00  INFO 15504 --- [job-backend] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:37:32.732+07:00  INFO 15504 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 15504 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:37:32.732+07:00  INFO 15504 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:37:33.252+07:00  INFO 15504 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:37:33.252+07:00  INFO 15504 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:37:33.280+07:00  INFO 15504 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:37:33.423+07:00  INFO 15504 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:37:33.425+07:00  INFO 15504 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:37:33.432+07:00  INFO 15504 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-11-03T11:37:33.435+07:00  INFO 15504 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b00a121
+2024-11-03T11:37:33.436+07:00  INFO 15504 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-11-03T11:37:33.436+07:00  WARN 15504 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:37:33.436+07:00  WARN 15504 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:37:33.556+07:00  INFO 15504 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:37:34.194+07:00  INFO 15504 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:37:34.629+07:00  INFO 15504 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 1.937 seconds (process running for 783.999)
+2024-11-03T11:38:25.402+07:00  INFO 15504 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-11-03T11:38:25.404+07:00  INFO 15504 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-11-03T11:38:27.388+07:00  INFO 1380 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 1380 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:38:27.389+07:00  INFO 1380 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:38:29.133+07:00  INFO 1380 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:38:29.134+07:00  INFO 1380 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:38:29.173+07:00  INFO 1380 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:38:29.443+07:00  INFO 1380 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:38:29.487+07:00  INFO 1380 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:38:29.511+07:00  INFO 1380 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:38:29.758+07:00  INFO 1380 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:38:29.866+07:00  INFO 1380 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8ec8033
+2024-11-03T11:38:29.867+07:00  INFO 1380 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:38:29.899+07:00  WARN 1380 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:38:29.900+07:00  WARN 1380 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:38:30.725+07:00  INFO 1380 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:38:31.858+07:00  INFO 1380 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:38:32.538+07:00  INFO 1380 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.513 seconds (process running for 6.151)
+2024-11-03T11:38:32.667+07:00  INFO 1380 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:38:32.667+07:00  INFO 1380 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:38:32.669+07:00  INFO 1380 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-03T11:38:40.779+07:00  INFO 1380 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:38:40.785+07:00  INFO 1380 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:38:42.775+07:00  INFO 7188 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 7188 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:38:42.776+07:00  INFO 7188 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:38:44.586+07:00  INFO 7188 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:38:44.587+07:00  INFO 7188 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:38:44.649+07:00  INFO 7188 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:38:44.894+07:00  INFO 7188 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:38:44.950+07:00  INFO 7188 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:38:44.995+07:00  INFO 7188 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:38:45.246+07:00  INFO 7188 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:38:45.352+07:00  INFO 7188 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@71b5c155
+2024-11-03T11:38:45.354+07:00  INFO 7188 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:38:45.384+07:00  WARN 7188 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:38:45.385+07:00  WARN 7188 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:38:46.349+07:00  INFO 7188 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:38:47.647+07:00  INFO 7188 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:38:48.345+07:00  INFO 7188 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.925 seconds (process running for 6.482)
+2024-11-03T11:38:48.627+07:00  INFO 7188 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:38:48.628+07:00  INFO 7188 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:38:48.629+07:00  INFO 7188 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-03T11:46:05.309+07:00  INFO 7188 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:46:05.316+07:00  INFO 7188 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:46:07.590+07:00  INFO 9896 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 9896 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:46:07.592+07:00  INFO 9896 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:46:09.552+07:00  INFO 9896 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:46:09.552+07:00  INFO 9896 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:46:09.601+07:00  INFO 9896 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:46:09.838+07:00  INFO 9896 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:46:09.879+07:00  INFO 9896 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:46:09.903+07:00  INFO 9896 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:46:10.141+07:00  INFO 9896 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:46:10.244+07:00  INFO 9896 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56a65d3a
+2024-11-03T11:46:10.246+07:00  INFO 9896 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:46:10.276+07:00  WARN 9896 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:46:10.277+07:00  WARN 9896 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:46:11.119+07:00  INFO 9896 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:46:12.336+07:00  INFO 9896 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:46:13.110+07:00  INFO 9896 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.909 seconds (process running for 6.502)
+2024-11-03T11:46:13.439+07:00  INFO 9896 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:46:13.440+07:00  INFO 9896 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:46:13.441+07:00  INFO 9896 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-03T11:47:29.770+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:47:29.771+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:47:29.807+07:00  WARN 9896 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/nhan.txt.]
+2024-11-03T11:47:29.905+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:47:29.906+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:47:39.081+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:47:39.081+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:47:39.086+07:00  WARN 9896 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/nhan.txt.]
+2024-11-03T11:47:39.122+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:47:39.123+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:47:43.733+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:47:43.733+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:47:43.738+07:00  WARN 9896 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/nhan.pdf.]
+2024-11-03T11:47:43.770+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:47:43.771+07:00  INFO 9896 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:00.086+07:00  INFO 9896 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:48:00.092+07:00  INFO 9896 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:48:02.052+07:00  INFO 10624 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 10624 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:48:02.054+07:00  INFO 10624 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:48:03.848+07:00  INFO 10624 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:48:03.849+07:00  INFO 10624 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:48:03.889+07:00  INFO 10624 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:48:04.132+07:00  INFO 10624 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:48:04.172+07:00  INFO 10624 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:48:04.195+07:00  INFO 10624 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:48:04.426+07:00  INFO 10624 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:48:04.530+07:00  INFO 10624 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@cd190aa
+2024-11-03T11:48:04.531+07:00  INFO 10624 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:48:04.570+07:00  WARN 10624 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:48:04.571+07:00  WARN 10624 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:48:05.413+07:00  INFO 10624 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:48:06.612+07:00  INFO 10624 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:48:07.308+07:00  INFO 10624 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.748 seconds (process running for 6.542)
+2024-11-03T11:48:07.627+07:00  INFO 10624 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:48:07.628+07:00  INFO 10624 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:48:07.629+07:00  INFO 10624 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-03T11:48:20.942+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:20.942+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:20.976+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/nhan.pdf.]
+2024-11-03T11:48:21.007+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:21.008+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:21.648+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:21.648+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:21.651+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/nhan.pdf.]
+2024-11-03T11:48:21.685+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:21.685+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:25.321+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:25.321+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:25.326+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.pdf.]
+2024-11-03T11:48:25.360+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:25.361+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:33.175+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:33.175+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:33.180+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:33.215+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:33.215+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:35.142+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:35.142+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:35.145+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:35.174+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:35.174+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:35.681+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:35.681+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:35.683+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:35.715+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:35.715+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:35.845+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:35.845+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:35.848+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:35.882+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:35.883+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.004+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.004+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.006+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:36.036+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.036+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.160+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.160+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.163+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:36.192+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.192+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.316+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.316+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.318+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:36.348+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.349+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.447+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.447+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.448+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:36.478+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.480+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.581+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.581+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.583+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:36.617+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.617+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.721+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.721+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.723+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:36.753+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.753+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.848+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.848+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.850+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:36.879+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.879+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.970+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:36.971+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:36.973+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:37.002+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:37.003+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:37.101+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:37.101+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:37.103+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:37.135+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:37.135+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:37.213+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:37.213+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:37.214+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:37.247+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:37.247+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:37.349+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:37.349+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:48:37.351+07:00  WARN 10624 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:48:37.384+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:48:37.384+07:00  INFO 10624 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:34.518+07:00  INFO 10624 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:49:34.524+07:00  INFO 10624 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:49:36.625+07:00  INFO 12448 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 12448 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:49:36.627+07:00  INFO 12448 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:49:38.692+07:00  INFO 12448 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:49:38.693+07:00  INFO 12448 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:49:38.740+07:00  INFO 12448 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:49:38.984+07:00  INFO 12448 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:49:39.025+07:00  INFO 12448 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:49:39.049+07:00  INFO 12448 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:49:39.285+07:00  INFO 12448 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:49:39.391+07:00  INFO 12448 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c30cb0a
+2024-11-03T11:49:39.393+07:00  INFO 12448 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:49:39.423+07:00  WARN 12448 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:49:39.424+07:00  WARN 12448 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:49:40.230+07:00  INFO 12448 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:49:41.394+07:00  INFO 12448 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:49:42.081+07:00  INFO 12448 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.828 seconds (process running for 6.443)
+2024-11-03T11:49:42.106+07:00  INFO 12448 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:49:42.112+07:00  INFO 12448 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:49:44.161+07:00  INFO 12144 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 12144 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:49:44.162+07:00  INFO 12144 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:49:45.896+07:00  INFO 12144 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:49:45.897+07:00  INFO 12144 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:49:45.946+07:00  INFO 12144 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:49:46.191+07:00  INFO 12144 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:49:46.230+07:00  INFO 12144 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:49:46.253+07:00  INFO 12144 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:49:46.486+07:00  INFO 12144 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:49:46.592+07:00  INFO 12144 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c5bcbef
+2024-11-03T11:49:46.594+07:00  INFO 12144 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:49:46.623+07:00  WARN 12144 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:49:46.624+07:00  WARN 12144 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:49:47.426+07:00  INFO 12144 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:49:48.769+07:00  INFO 12144 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:49:49.569+07:00  INFO 12144 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.82 seconds (process running for 6.434)
+2024-11-03T11:49:49.901+07:00  INFO 12144 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:49:49.902+07:00  INFO 12144 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:49:49.903+07:00  INFO 12144 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-03T11:49:50.809+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:50.809+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:50.840+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:50.873+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:50.873+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:51.411+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:51.411+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:51.414+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:51.451+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:51.452+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:51.840+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:51.840+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:51.843+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:51.877+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:51.877+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:52.011+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:52.011+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:52.013+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:52.047+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:52.047+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:52.608+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:52.609+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:52.611+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:52.646+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:52.646+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:52.762+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:52.763+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:52.765+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:52.799+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:52.799+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:52.917+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:52.917+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:52.920+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:52.951+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:52.951+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.058+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.058+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.060+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:53.095+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.095+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.218+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.218+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.220+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:53.249+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.249+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.392+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.393+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.395+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:53.428+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.429+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.547+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.547+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.549+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:53.578+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.578+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.712+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.712+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.714+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:53.743+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.744+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.846+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.846+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:53.848+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:53.878+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:53.878+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:54.130+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:54.131+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:54.133+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:54.170+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:54.170+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:54.298+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:54.298+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:49:54.300+07:00  WARN 12144 --- [job-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:49:54.328+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:49:54.328+07:00  INFO 12144 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:50:52.967+07:00  INFO 12144 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:50:52.973+07:00  INFO 12144 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:50:55.481+07:00  INFO 1432 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 1432 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:50:55.483+07:00  INFO 1432 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:50:57.211+07:00  INFO 1432 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:50:57.212+07:00  INFO 1432 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:50:57.251+07:00  INFO 1432 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:50:57.487+07:00  INFO 1432 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:50:57.528+07:00  INFO 1432 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:50:57.550+07:00  INFO 1432 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:50:57.783+07:00  INFO 1432 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:50:57.888+07:00  INFO 1432 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32a0131f
+2024-11-03T11:50:57.890+07:00  INFO 1432 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:50:57.921+07:00  WARN 1432 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:50:57.921+07:00  WARN 1432 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:50:58.779+07:00  INFO 1432 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:51:00.020+07:00  INFO 1432 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:51:00.861+07:00  INFO 1432 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.738 seconds (process running for 6.304)
+2024-11-03T11:51:01.317+07:00  INFO 1432 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:51:01.317+07:00  INFO 1432 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:51:01.319+07:00  INFO 1432 --- [job-backend] [RMI TCP Connection(2)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-03T11:51:13.559+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:13.559+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:13.593+07:00  WARN 1432 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:51:13.626+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:13.626+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:14.300+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:14.300+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:14.303+07:00  WARN 1432 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:51:14.338+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:14.338+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:14.717+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:14.717+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:14.721+07:00  WARN 1432 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:51:14.755+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:14.755+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:14.877+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:14.877+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:14.879+07:00  WARN 1432 --- [job-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:51:14.914+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:14.914+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:15.011+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:15.012+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:15.015+07:00  WARN 1432 --- [job-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:51:15.046+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:15.046+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:15.169+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:15.169+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:15.172+07:00  WARN 1432 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource storage/hoidanit.txt.]
+2024-11-03T11:51:15.206+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:51:15.206+07:00  INFO 1432 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:51:52.314+07:00  INFO 1432 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:51:52.319+07:00  INFO 1432 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-03T11:51:55.536+07:00  INFO 11400 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 11400 (D:\SpringbootTayJava\project\job-backend\target\classes started by Admin in D:\SpringbootTayJava\project\job-backend)
+2024-11-03T11:51:55.537+07:00  INFO 11400 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-03T11:51:57.278+07:00  INFO 11400 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-03T11:51:57.279+07:00  INFO 11400 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-03T11:51:57.328+07:00  INFO 11400 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-03T11:51:57.569+07:00  INFO 11400 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-03T11:51:57.607+07:00  INFO 11400 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-03T11:51:57.632+07:00  INFO 11400 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-03T11:51:57.865+07:00  INFO 11400 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-03T11:51:57.980+07:00  INFO 11400 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b149990
+2024-11-03T11:51:57.981+07:00  INFO 11400 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-03T11:51:58.014+07:00  WARN 11400 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-03T11:51:58.015+07:00  WARN 11400 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-03T11:51:58.838+07:00  INFO 11400 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-03T11:52:00.143+07:00  INFO 11400 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-03T11:52:01.000+07:00  INFO 11400 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 5.847 seconds (process running for 6.401)
+2024-11-03T11:52:01.385+07:00  INFO 11400 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-03T11:52:01.385+07:00  INFO 11400 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-03T11:52:01.387+07:00  INFO 11400 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-03T11:52:06.061+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:06.061+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:06.098+07:00  WARN 11400 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource nhan.txt.]
+2024-11-03T11:52:06.134+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:06.134+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:16.597+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:16.597+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:16.601+07:00  WARN 11400 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource nhan.txt.]
+2024-11-03T11:52:16.636+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:16.637+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:17.212+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:17.213+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-5] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:17.215+07:00  WARN 11400 --- [job-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource nhan.txt.]
+2024-11-03T11:52:17.250+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:17.250+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-6] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:17.841+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:17.841+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-7] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:17.843+07:00  WARN 11400 --- [job-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource nhan.txt.]
+2024-11-03T11:52:17.879+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:17.879+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-8] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:18.327+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:18.327+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-9] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:18.329+07:00  WARN 11400 --- [job-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource nhan.txt.]
+2024-11-03T11:52:18.360+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:18.360+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-10] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:18.466+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:18.466+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-1] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:18.468+07:00  WARN 11400 --- [job-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource nhan.txt.]
+2024-11-03T11:52:18.498+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:18.499+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-2] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:18.605+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:18.605+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-3] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:18.607+07:00  WARN 11400 --- [job-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource nhan.txt.]
+2024-11-03T11:52:18.641+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : -------------PreFilter----------------
+2024-11-03T11:52:18.641+07:00  INFO 11400 --- [job-backend] [http-nio-8080-exec-4] CUSTOMIZE-FILTER                         : Authorization: null
+2024-11-03T11:52:44.426+07:00  INFO 11400 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-03T11:52:44.431+07:00  INFO 11400 --- [job-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
