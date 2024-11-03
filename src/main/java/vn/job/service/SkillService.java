@@ -11,8 +11,11 @@ import vn.job.dto.response.ResPagination;
 import vn.job.exception.EntityAlreadyExistsException;
 import vn.job.exception.IdInvalidException;
 import vn.job.model.Company;
+import vn.job.model.Job;
 import vn.job.model.Skill;
 import vn.job.repository.SkillRepository;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +24,7 @@ public class SkillService {
     private final SkillRepository skillRepository;
 
     public Skill handleCreateSkill(Skill skill) {
+        log.info("---------------add skill---------------");
         if(skill.getName() != null && isNameExist(skill.getName())) {
             throw new EntityAlreadyExistsException("Skill name already exists");
         }
@@ -32,6 +36,7 @@ public class SkillService {
     }
 
     public Skill handleUpdateSkill( Skill skill) {
+        log.info("---------------update skill---------------");
         Skill skillDB = handleGetSkillById(skill.getId());
         if(skill.getName() != null && isNameExist(skill.getName())) {
             throw new EntityAlreadyExistsException("Skill name already exists");
@@ -46,7 +51,7 @@ public class SkillService {
 
 
     public ResPagination handleGetAllSkills(Specification<Skill> spec, Pageable pageable) {
-        log.info("---------------get list company---------------");
+        log.info("---------------get list skill---------------");
         Page<Skill> pageSkill = this.skillRepository.findAll(spec, pageable);
         ResPagination rs = new ResPagination();
         ResPagination.Meta mt = new ResPagination.Meta();
@@ -60,7 +65,14 @@ public class SkillService {
     }
 
     public void handleDeleteSkill(long id) {
+        log.info("---------------delete skill---------------");
         Skill skillDB = handleGetSkillById(id);
+        if(skillDB.getJobs() != null) {
+            List<Job> jobs = skillDB.getJobs();
+            for (Job job : jobs) {
+                job.getSkills().remove(skillDB);
+            }
+        }
         this.skillRepository.delete(skillDB);
     }
 }
