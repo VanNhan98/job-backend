@@ -15,6 +15,10 @@ spring:
     show-sql: false
     hibernate:
       ddl-auto: update
+  http:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
 
 springdoc:
   api-docs:
@@ -30,7 +34,7 @@ openapi:
 jwt:
   expiryMinutes: 60
   expiryDay: 14
-  accessKey: d110c2b4a5db22baa227e30129f652343691474d7347c19551205e2d0eaeaf8e333037460f462508c58e58b190af3809193918c206005a91be23e2b5e01adf4b
+  accessKey: 3e76a20f14870544fe9769b171033cbf255be28127e3376903ba47c06bc30e4a13463f5de47fa3ccbc1631de77e2c0c78eeb007c5ad395f9d028a82b8cffbd32
   refreshKey: 2d30952bbe2be2910fcd7d10af97e0836b990808792f2d37ad99789f0cf99b1ac35a77e19cee88e601dfbc6e12389f391e17a0cdb91e0f78a0eb7dad380da082
   secretKey: 4db44c56d1e29e7d6279e8c27d2d29c8b07d411dd009f7949e446866b0230944ba177a487adb0eaca6f5ec8dc153c9cc78b65fd0b9c8ace23f6a6ed6373c3f9b
 file:

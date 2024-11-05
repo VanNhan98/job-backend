@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 
@@ -22,18 +23,6 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
-
-    // handle hand
-    @ExceptionHandler({IdInvalidException.class} )
-    public ErrorResponse handleIdInvalidException(Exception e, WebRequest request){
-        ErrorResponse errorResponse = new ErrorResponse();
-        errorResponse.setTimestamp(new Date());
-        errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorResponse.setPath(request.getDescription(false).replace("uri=", ""));
-        errorResponse.setError(e.getMessage());
-        errorResponse.setMessage("Error Exception");
-        return errorResponse;
-    }
 
     // handle validations
     @ExceptionHandler({MethodArgumentNotValidException.class})
@@ -103,5 +92,14 @@ public class GlobalExceptionHandler {
 
 
 
- 
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public ErrorResponse handleMaxUploadException(Exception e, WebRequest request) {
+        ErrorResponse errorResponse = new ErrorResponse();
+        errorResponse.setTimestamp(new Date());
+        errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorResponse.setPath(request.getDescription(false).replace("uri=", ""));
+        errorResponse.setError(HttpStatus.BAD_REQUEST.getReasonPhrase());
+        errorResponse.setMessage("Maximum upload size exceeded ");
+        return errorResponse;
+    }
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import vn.job.dto.response.ResFileDTO;
 import vn.job.exception.EntityAlreadyExistsException;
+import vn.job.exception.StorageFileException;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +16,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class FileService {
@@ -34,7 +37,9 @@ public class FileService {
 
     }
 
-    public String saveFile(MultipartFile file, String folder) throws URISyntaxException, IOException {
+    public String saveFile(MultipartFile file, String folder) throws URISyntaxException, IOException, StorageFileException {
+
+        validateFile(file);
         String finalName = System.currentTimeMillis() + "-" + file.getOriginalFilename();
         URI uri = new URI(baseUri + folder + "/" + finalName);
         Path path = Paths.get(uri);
@@ -43,6 +48,20 @@ public class FileService {
                     StandardCopyOption.REPLACE_EXISTING);
         }
         return finalName;
+    }
+
+    private void validateFile(MultipartFile file) throws StorageFileException {
+        if (file == null || file.isEmpty()) {
+            throw new StorageFileException("File is Empty, Please upload a file");
+        }
+
+        String fileName = file.getOriginalFilename();
+        List<String> allowedExtensions = Arrays.asList("pdf", "jpg", "jpeg", "png", "doc", "docx");
+        boolean isValid = allowedExtensions.stream().anyMatch(ext -> fileName.toLowerCase().endsWith(ext));
+
+        if (!isValid) {
+            throw new StorageFileException("Invalid file extension, only allows " + allowedExtensions.toString());
+        }
     }
 
 
