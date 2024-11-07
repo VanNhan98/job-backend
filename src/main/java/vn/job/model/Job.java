@@ -8,7 +8,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import vn.job.util.EnumValue;
-import vn.job.util.Gender;
 import vn.job.util.LevelEnum;
 
 import java.time.Instant;
@@ -49,6 +48,10 @@ public class Job extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
+    @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Resume> resumes;
 
 
     @ManyToMany(fetch = FetchType.LAZY)

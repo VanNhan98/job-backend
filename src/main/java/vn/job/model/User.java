@@ -2,6 +2,7 @@ package vn.job.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -13,7 +14,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import vn.job.util.EnumValue;
-import vn.job.util.Gender;
+import vn.job.util.GenderEnum;
+import vn.job.util.GenderEnum;
 import vn.job.util.PhoneNumber;
 import java.io.Serializable;
 import java.util.Collection;
@@ -41,9 +43,9 @@ public class User extends BaseEntity implements UserDetails, Serializable
     private String dateOfBirth;
 
     @NotNull(message = "gender must be not null")
-    @EnumValue(name = "gender", enumClass = Gender.class)
+    @EnumValue(name = "gender", enumClass = GenderEnum.class)
     @Enumerated(EnumType.STRING)
-    private Gender  gender;
+    private GenderEnum  gender;
 
     @PhoneNumber
     private String phone;
@@ -66,6 +68,10 @@ public class User extends BaseEntity implements UserDetails, Serializable
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Resume> resumes;
 
     /**
      * @return Returns the authorities granted to the user. Cannot return null.

@@ -1,7 +1,6 @@
 package vn.job.service;
 
 import jakarta.mail.MessagingException;
-import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -11,7 +10,6 @@ import org.springframework.data.jpa.domain.Specification;
 //import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import vn.job.dto.response.ResPagination;
 import vn.job.dto.response.ResUserDetail;
