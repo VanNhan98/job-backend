@@ -2,6 +2,8 @@ package vn.job.dto.response.job;
 
 import lombok.Builder;
 import lombok.Getter;
+import vn.job.model.Company;
+import vn.job.model.Job;
 import vn.job.util.LevelEnum;
 
 import java.util.Date;
@@ -28,6 +30,8 @@ public class ResCreateJob {
     private Date endDate;
 
     private boolean active;
+
+    private Company company;
 
     private List<String> skills;
 

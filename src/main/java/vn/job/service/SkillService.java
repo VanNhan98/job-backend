@@ -46,7 +46,7 @@ public class SkillService {
     }
 
     private Skill handleGetSkillById(long id) {
-        return this.skillRepository.findById(id).orElseThrow(() -> new IdInvalidException("Skill not found"));
+        return this.skillRepository.findById(id).orElseThrow(() -> new IdInvalidException("Id not found"));
     }
 
 

@@ -102,4 +102,6 @@ public class GlobalExceptionHandler {
         errorResponse.setMessage("Maximum upload size exceeded ");
         return errorResponse;
     }
+
+
 }

@@ -201,7 +201,7 @@ public class UserService {
     }
 
     private User handleGetUserById(long userId) {
-        return userRepository.findById(userId).orElseThrow(() -> new IdInvalidException("User not found"));
+        return userRepository.findById(userId).orElseThrow(() -> new IdInvalidException("Id  not found"));
     }
 
     public boolean isEmailExist(String email) {

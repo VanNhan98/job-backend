@@ -12,8 +12,10 @@ import vn.job.dto.response.ResPagination;
 import vn.job.dto.response.job.ResCreateJob;
 import vn.job.dto.response.job.ResUpdateJob;
 import vn.job.exception.IdInvalidException;
+import vn.job.model.Company;
 import vn.job.model.Job;
 import vn.job.model.Skill;
+import vn.job.repository.CompanyRepository;
 import vn.job.repository.JobRepository;
 import vn.job.repository.SkillRepository;
 
@@ -28,8 +30,11 @@ public class JobService {
 
     private final SkillRepository skillRepository;
 
+    private final CompanyRepository companyRepository;
+
     public ResCreateJob handleCreateJob(Job job) {
         log.info("-------------------Create Job ----------------");
+
         if (job.getSkills() != null) {
             List<Long> reqSkill = job.getSkills().stream().map(item -> item.getId()).collect(Collectors.toList());
             List<Skill> dbSkills = this.skillRepository.findByIdIn(reqSkill);
@@ -46,6 +51,13 @@ public class JobService {
                     .collect(Collectors.toList());
         }
 
+
+        if (job.getCompany() != null) {
+            Company company = this.companyRepository.findById(job.getCompany().getId()).orElse(null);
+            job.setCompany(company);
+        }
+
+
         // response view
         ResCreateJob resJob = ResCreateJob.builder()
                 .id(currentJob.getId())
@@ -57,6 +69,7 @@ public class JobService {
                 .startDate(currentJob.getStartDate())
                 .endDate(currentJob.getEndDate())
                 .active(currentJob.isActive())
+                .company(currentJob.getCompany())
                 .skills(listSkills)
                 .createdAt(currentJob.getCreatedAt())
                 .createdBy(currentJob.getCreatedBy())
@@ -132,7 +145,7 @@ public class JobService {
 
 
     public Job handleGetJobById(long id) {
-        return this.jobRepository.findById(id).orElseThrow(() -> new IdInvalidException("Job not found"));
+        return this.jobRepository.findById(id).orElseThrow(() -> new IdInvalidException("Id not found"));
     }
 
     public ResPagination handleGetAllJobs(Specification<Job> spec, Pageable pageable) {

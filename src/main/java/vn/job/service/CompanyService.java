@@ -53,7 +53,7 @@ public class CompanyService {
     }
 
     private Company handleGetCompanyById(long id) {
-        return this.companyRepository.findById(id).orElseThrow(() -> new IdInvalidException("Company not found"));
+        return this.companyRepository.findById(id).orElseThrow(() -> new IdInvalidException("Id not found"));
     }
 
 

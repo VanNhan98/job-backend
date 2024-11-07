@@ -26,10 +26,9 @@ import vn.job.service.JobService;
 public class JobController {
     private final JobService jobService;
 
-
     @PostMapping("/add")
     public ResponseData<ResCreateJob> addJob(@Valid @RequestBody Job job) {
-        log.info("Request create skill={}", job.getName());
+        log.info("Request create job={}", job.getName());
         try {
             ResCreateJob currentJob = this.jobService.handleCreateJob(job);
             return new ResponseData<>(HttpStatus.CREATED.value(), "Add Job successfully", currentJob);
@@ -41,10 +40,10 @@ public class JobController {
 
     @PutMapping("/update")
     public ResponseData<ResUpdateJob> updateJob(@Valid @RequestBody Job job) {
-        log.info("Request update skill={}", job.getName());
+        log.info("Request update job={}", job.getName());
         try {
             ResUpdateJob currentJob = this.jobService.handleUpdateJob(job);
-            return new ResponseData<>(HttpStatus.CREATED.value(), "Update Job successfully", currentJob);
+            return new ResponseData<>(HttpStatus.OK.value(), "Update Job successfully", currentJob);
         } catch (Exception e) {
             log.error("errorMessage= {} ", e.getMessage(), e.getCause());
             return new ResponseData<>(HttpStatus.BAD_REQUEST.value(), "Update skill failed");
@@ -73,7 +72,7 @@ public class JobController {
 
         } catch (Exception e) {
             log.error("errorMessage= {} ", e.getMessage(), e.getCause());
-            return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Get Detail cojobmpany failed");
+            return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Get Detail job failed");
         }
     }
 
