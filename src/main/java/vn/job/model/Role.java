@@ -1,6 +1,7 @@
 package vn.job.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -27,5 +28,10 @@ public class Role extends BaseEntity{
     @JsonIgnoreProperties(value = {"roles"})
     @JoinTable(name = "tbl_role_permission", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "permission_id"))
     private List<Permission> permissions;
+
+
+    @OneToMany(mappedBy = "role")
+    @JsonIgnore
+    private List<User> users;
 
 }

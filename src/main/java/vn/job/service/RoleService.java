@@ -63,7 +63,7 @@ public class RoleService {
         return this.roleRepository.save(role);
     }
 
-    private Role handleGetRoleById(long id) {
+    public Role handleGetRoleById(long id) {
         return this.roleRepository.findById(id).orElseThrow(() -> new IdInvalidException("Id not found"));
     }
 

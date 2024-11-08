@@ -18,6 +18,7 @@ import vn.job.dto.response.ResponseUpdateUser;
 import vn.job.exception.EntityAlreadyExistsException;
 import vn.job.exception.IdInvalidException;
 import vn.job.model.Company;
+import vn.job.model.Role;
 import vn.job.model.User;
 import vn.job.repository.UserRepository;
 
@@ -36,6 +37,8 @@ public class UserService {
 
     private  final CompanyService companyService;
 
+    private final RoleService roleService;
+
 
     public UserDetailsService userDetailsService() {
         return email -> this.userRepository.findByEmail(email).orElseThrow(() ->new UsernameNotFoundException("User not found"));
@@ -52,6 +55,11 @@ public class UserService {
         if(user.getCompany() != null) {
             Optional<Company> companyOptional = Optional.ofNullable(this.companyService.handleGetCompany(user.getCompany().getId()));
             user.setCompany(companyOptional.orElse(null));
+        }
+        // check role
+        if(user.getRole() != null) {
+            Optional<Role> roleOptional = Optional.ofNullable(this.roleService.handleGetRoleById(user.getRole().getId()));
+            user.setRole(roleOptional.orElse(null));
         }
 
 
@@ -72,6 +80,13 @@ public class UserService {
             companyUser.setName(currentUser.getCompany().getName());
         }
 
+        ResponseCreateUser.RoleUser roleUser = null;
+        if (currentUser.getCompany() != null) {
+            roleUser = new ResponseCreateUser.RoleUser();
+            roleUser.setId(currentUser.getRole().getId());
+            roleUser.setName(currentUser.getRole().getName());
+        }
+
         ResponseCreateUser resUser = ResponseCreateUser.builder()
                 .id(currentUser.getId())
                 .firstName(currentUser.getFirstName())
@@ -84,6 +99,7 @@ public class UserService {
                 .address(currentUser.getAddress())
                 .language(currentUser.getLanguage())
                 .company(companyUser)
+                .role(roleUser)
                 .createdAt(currentUser.getCreatedAt())
                 .createdBy(currentUser.getCreatedBy())
                 .build();
@@ -112,8 +128,16 @@ public class UserService {
             currentUser.setCompany(companyOptional.orElse(null));
         }
 
+        // check role
+        if(user.getRole() != null) {
+            Optional<Role> roleOptional = Optional.ofNullable(this.roleService.handleGetRoleById(user.getRole().getId()));
+            currentUser.setRole(roleOptional.orElse(null));
+        }
+
+
         //save
         User updatedUser = this.userRepository.save(currentUser);
+
 
         ResponseUpdateUser.CompanyUser companyUser = null;
         if (updatedUser.getCompany() != null) {
@@ -121,6 +145,14 @@ public class UserService {
             companyUser.setId(currentUser.getCompany().getId());
             companyUser.setName(currentUser.getCompany().getName());
         }
+
+        ResponseUpdateUser.RoleUser roleUser = null;
+        if (currentUser.getCompany() != null) {
+            roleUser = new ResponseUpdateUser.RoleUser();
+            roleUser.setId(currentUser.getRole().getId());
+            roleUser.setName(currentUser.getRole().getName());
+        }
+
 
         // convert response
         ResponseUpdateUser resUser = ResponseUpdateUser.builder()
@@ -134,6 +166,7 @@ public class UserService {
                .address(updatedUser.getAddress())
                 .language(updatedUser.getLanguage())
                 .company(companyUser)
+                .role(roleUser)
                .updatedAt(updatedUser.getUpdatedAt())
                 .updatedBy(currentUser.getUpdatedBy()).build();
         log.info("User updated successfully");
@@ -173,6 +206,14 @@ public class UserService {
             companyUser.setId(currentUser.getCompany().getId());
             companyUser.setName(currentUser.getCompany().getName());
         }
+
+        ResUserDetail.RoleUser roleUser = null;
+        if (currentUser.getCompany() != null) {
+            roleUser = new ResUserDetail.RoleUser();
+            roleUser.setId(currentUser.getRole().getId());
+            roleUser.setName(currentUser.getRole().getName());
+        }
+
         ResUserDetail resUser = ResUserDetail.builder()
                 .id(currentUser.getId())
                 .firstName(currentUser.getFirstName())
@@ -185,6 +226,7 @@ public class UserService {
                 .address(currentUser.getAddress())
                 .language(currentUser.getLanguage())
                 .company(companyUser)
+                .role(roleUser)
                 .updatedAt(currentUser.getUpdatedAt())
                 .updatedBy(currentUser.getUpdatedBy())
                 .createdAt(currentUser.getCreatedAt())

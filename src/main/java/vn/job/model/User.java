@@ -73,6 +73,11 @@ public class User extends BaseEntity implements UserDetails, Serializable
     @JsonIgnore
     private List<Resume> resumes;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+
     /**
      * @return Returns the authorities granted to the user. Cannot return null.
      */

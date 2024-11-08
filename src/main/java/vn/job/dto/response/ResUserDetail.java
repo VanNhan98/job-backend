@@ -36,6 +36,8 @@ public class ResUserDetail implements Serializable {
 
     private CompanyUser company;
 
+    private RoleUser role;
+
     private Date createdAt;
 
     private Date updatedAt;
@@ -53,5 +55,13 @@ public class ResUserDetail implements Serializable {
         private String name;
     }
 
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class RoleUser {
+        private long id;
+        private String name;
+    }
 
 }

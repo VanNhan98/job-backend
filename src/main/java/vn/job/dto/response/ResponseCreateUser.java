@@ -3,9 +3,7 @@ package vn.job.dto.response;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import vn.job.service.JwtService;
 
@@ -37,6 +35,8 @@ public class ResponseCreateUser implements Serializable {
 
     private CompanyUser company;
 
+    private RoleUser role;
+
     private Date createdAt;
 
     private String createdBy;
@@ -45,6 +45,14 @@ public class ResponseCreateUser implements Serializable {
     @Getter
     @Setter
     public static class  CompanyUser {
+        private long id;
+        private String name;
+    }
+
+
+    @Getter
+    @Setter
+    public static class RoleUser {
         private long id;
         private String name;
     }

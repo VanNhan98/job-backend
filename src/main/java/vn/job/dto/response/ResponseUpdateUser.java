@@ -31,6 +31,8 @@ public class ResponseUpdateUser implements Serializable {
 
     private CompanyUser company;
 
+    private RoleUser role;
+
     private Date updatedAt;
 
     private String updatedBy;
@@ -39,6 +41,13 @@ public class ResponseUpdateUser implements Serializable {
     @Getter
     @Setter
     public static class CompanyUser {
+        private long id;
+        private String name;
+    }
+
+    @Getter
+    @Setter
+    public static class RoleUser {
         private long id;
         private String name;
     }
