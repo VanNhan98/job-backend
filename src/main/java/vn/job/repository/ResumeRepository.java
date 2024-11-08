@@ -13,4 +13,5 @@ import vn.job.model.Skill;
 @Repository
 public interface ResumeRepository extends JpaRepository<Resume, Long>, JpaSpecificationExecutor<Resume> {
 
+    Page<Resume> findByEmail(String email, Pageable pageable);
 }

@@ -169,4 +169,17 @@ public class JwtService {
         return Optional.empty();
     }
 
+
+    public static Optional<String> getCurrentUserEmail() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated() && authentication.getPrincipal() instanceof User) {
+            User user = (User) authentication.getPrincipal();
+            return Optional.ofNullable(user.getEmail());
+        }
+        return Optional.empty();
+    }
+
 }
+
+

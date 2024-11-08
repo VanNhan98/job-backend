@@ -1,6 +1,7 @@
 package vn.job.service;
 
 import jakarta.mail.MessagingException;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -11,10 +12,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import vn.job.dto.response.ResPagination;
-import vn.job.dto.response.ResUserDetail;
-import vn.job.dto.response.ResponseCreateUser;
-import vn.job.dto.response.ResponseUpdateUser;
+import vn.job.dto.response.*;
 import vn.job.exception.EntityAlreadyExistsException;
 import vn.job.exception.IdInvalidException;
 import vn.job.model.Company;
@@ -258,5 +256,30 @@ public class UserService {
 
     public User findUserByEmail(String email) {
         return this.userRepository.findByEmail(email).orElseThrow(() -> new IdInvalidException("User not found"));
+    }
+
+    public ResRegisterDTO handleRegisterUser(User user) {
+        log.info("---------------register user---------------");
+        if (isEmailExist(user.getEmail())) {
+            throw new EntityAlreadyExistsException("Email already exists: " + user.getEmail());
+        }
+        
+        User newUser = this.userRepository.save(user);
+
+        ResRegisterDTO resRegisterDTO = ResRegisterDTO.builder()
+                .id(newUser.getId())
+                .firstName(newUser.getFirstName())
+                .lastName(newUser.getLastName())
+                .dateOfBirth(newUser.getDateOfBirth())
+                .gender(String.valueOf(newUser.getGender()))
+                .phone(newUser.getPhone())
+                .email(newUser.getEmail())
+                .password(newUser.getPassword())
+                .username(newUser.getUsername())
+                .address(newUser.getAddress())
+                .language(newUser.getLanguage())
+                .createdAt(newUser.getCreatedAt())
+                .build();
+        return resRegisterDTO;
     }
 }

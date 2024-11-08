@@ -96,4 +96,18 @@ public class ResumeController {
         }
     }
 
+    @GetMapping("/by-user")
+    public ResponseData<ResPagination> getResumeByUser(Pageable pageable) {
+        log.info("Request get resume by user");
+        try {
+            ResPagination currentResume = this.resumeService.handleGetResumeByUser(pageable);
+            return new ResponseData<>(HttpStatus.OK.value(), "Get Detail Resume successfully", currentResume);
+
+        } catch (Exception e) {
+            log.error("errorMessage= {} ", e.getMessage(), e.getCause());
+            return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Get Detail Resume failed");
+        }
+    }
+
+
 }

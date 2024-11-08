@@ -147,4 +147,22 @@ public class ResumeService {
         rs.setResult(list);
         return rs;
     }
+
+    public ResPagination handleGetResumeByUser(Pageable pageable) {
+        String username = JwtService.getCurrentUserEmail().isPresent() ? JwtService.getCurrentUserEmail().get() : "";
+        Page<Resume> pageResume = this.resumeRepository.findByEmail(username, pageable);
+            ResPagination rs = new ResPagination();
+        ResPagination.Meta mt = new ResPagination.Meta();
+        mt.setPage(pageable.getPageNumber() + 1);
+        mt.setPageSize(pageable.getPageSize());
+        mt.setPages(pageResume.getTotalPages());
+        mt.setTotal(pageResume.getTotalElements());
+        rs.setMeta(mt);
+        List<ResDetailResume> list = pageResume.getContent().stream()
+                .map(resume -> this.handleGetResume(resume.getId()))
+                .collect(Collectors.toList());
+        rs.setResult(list);
+        return rs;
+
+    }
 }

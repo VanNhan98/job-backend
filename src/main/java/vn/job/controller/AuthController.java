@@ -1,21 +1,28 @@
 package vn.job.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import vn.job.dto.request.LoginRequest;
 import vn.job.dto.request.ResetPasswordDTO;
+import vn.job.dto.response.ResRegisterDTO;
+import vn.job.dto.response.ResponseCreateUser;
 import vn.job.dto.response.TokenResponse;
 import vn.job.dto.response.error.ResponseData;
 import vn.job.dto.response.error.ResponseError;
+import vn.job.model.User;
 import vn.job.service.AuthService;
+import vn.job.service.UserService;
 
 import java.io.UnsupportedEncodingException;
 
@@ -29,6 +36,10 @@ import java.io.UnsupportedEncodingException;
 public class AuthController {
 
     private final AuthService authService;
+
+    private final PasswordEncoder passwordEncoder;
+
+    private final UserService userService;
 
     @PostMapping("/access")
     public ResponseData<TokenResponse> login(@RequestBody LoginRequest request, HttpServletResponse response) {
@@ -52,6 +63,23 @@ public class AuthController {
             return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Refresh failed");
         }
     }
+
+    @Operation(summary = "Register new user", description = "API for insert user into databases")
+    @PostMapping("/register")
+    public ResponseData<ResRegisterDTO> register(@Valid @RequestBody User user) {
+        log.info("Request create user={}", user.getUsername());
+        try {
+            String hashPassWord = this.passwordEncoder.encode(user.getPassword());
+            user.setPassword(hashPassWord);
+            ResRegisterDTO currentUser = this.userService.handleRegisterUser(user);
+            return new ResponseData<>(HttpStatus.CREATED.value(), "User register successfully", currentUser);
+
+        } catch (Exception e) {
+            log.error("errorMessage= {} ", e.getMessage(), e.getCause());
+            return new ResponseError(HttpStatus.BAD_REQUEST.value(), "User register failed");
+        }
+    }
+
 
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import vn.job.dto.response.ResPagination;
 import vn.job.dto.response.error.ResponseData;
 import vn.job.dto.response.error.ResponseError;
+import vn.job.dto.response.resume.ResDetailResume;
 import vn.job.model.Permission;
 import vn.job.model.Role;
 import vn.job.service.RoleService;
@@ -58,6 +59,19 @@ public class RoleController {
         } catch (Exception e) {
             log.error("errorMessage= {} ", e.getMessage(), e.getCause());
             return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Get list role failed");
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseData<Role> getRole(@PathVariable("id") long id) {
+        log.info("Request get role={}", id);
+        try {
+            Role currentRole = this.roleService.handleGetRole(id);
+            return new ResponseData<>(HttpStatus.OK.value(), "Get Detail role successfully", currentRole);
+
+        } catch (Exception e) {
+            log.error("errorMessage= {} ", e.getMessage(), e.getCause());
+            return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Get Detail role failed");
         }
     }
 

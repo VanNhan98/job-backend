@@ -91,4 +91,10 @@ public class RoleService {
         Role role = handleGetRoleById(id);
         this.roleRepository.delete(role);
     }
+
+    public Role handleGetRole(long id) {
+        log.info("---------------get role---------------");
+        return handleGetRoleById(id);
+
+    }
 }

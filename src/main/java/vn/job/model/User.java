@@ -89,6 +89,10 @@ public class User extends BaseEntity implements UserDetails, Serializable
     }
 
 
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        return List.of();
+//    }
 
     /**
      * Indicates whether the user's account has expired. An expired account cannot be authenticated.
