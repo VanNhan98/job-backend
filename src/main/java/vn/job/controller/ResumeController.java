@@ -24,7 +24,7 @@ import vn.job.model.Resume;
 import vn.job.service.ResumeService;
 
 @RestController
-@RequestMapping("resumes")
+@RequestMapping("/resumes")
 @RequiredArgsConstructor
 @Slf4j
 @Validated
