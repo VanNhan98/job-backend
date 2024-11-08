@@ -87,6 +87,13 @@ public class JobService {
             job.setSkills(dbSkills);
         }
 
+
+        if (job.getCompany() != null) {
+            Company company = this.companyRepository.findById(job.getCompany().getId()).orElse(null);
+            job.setCompany(company);
+        }
+
+
         // update
         job.setId(reqJob.getId());
         job.setName(reqJob.getName());
@@ -97,6 +104,7 @@ public class JobService {
         job.setStartDate(reqJob.getStartDate());
         job.setEndDate(reqJob.getEndDate());
         job.setActive(reqJob.isActive());
+        job.setCompany(reqJob.getCompany());
         job.setSkills(reqJob.getSkills());
         job.setUpdatedAt(reqJob.getUpdatedAt());
         job.setUpdatedBy(reqJob.getUpdatedBy());

@@ -43,16 +43,13 @@ public class CustomizeFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         log.info("-------------PreFilter----------------");
         final String authorization =  request.getHeader("Authorization");
-        log.info("Authorization: {}",authorization);
-
-
 
         if (StringUtils.isBlank(authorization) || !authorization.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
         final String token = authorization.substring("Bearer ".length());
-        log.info("token: {}",token);
+        log.info("token: {}",token.substring(0,20));
 
 
 
