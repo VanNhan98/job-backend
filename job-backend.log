@@ -1,0 +1,19 @@
+2024-11-08T08:40:06.831+07:00  INFO 12284 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Starting JobBackendApplication using Java 21.0.2 with PID 12284 (D:\springbootproject\project\job-backend\target\classes started by Admin in D:\springbootproject\project\job-backend)
+2024-11-08T08:40:06.833+07:00  INFO 12284 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : The following 1 profile is active: "dev"
+2024-11-08T08:40:09.416+07:00  INFO 12284 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-08T08:40:09.417+07:00  INFO 12284 --- [job-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-08T08:40:09.466+07:00  INFO 12284 --- [job-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-08T08:40:09.721+07:00  INFO 12284 --- [job-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-08T08:40:09.775+07:00  INFO 12284 --- [job-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-08T08:40:09.805+07:00  INFO 12284 --- [job-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-08T08:40:10.088+07:00  INFO 12284 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-08T08:40:10.213+07:00  INFO 12284 --- [job-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@33b66566
+2024-11-08T08:40:10.215+07:00  INFO 12284 --- [job-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-08T08:40:10.257+07:00  WARN 12284 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-08T08:40:10.259+07:00  WARN 12284 --- [job-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-08T08:40:11.245+07:00  INFO 12284 --- [job-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-08T08:40:12.631+07:00  INFO 12284 --- [job-backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-11-08T08:40:13.391+07:00  INFO 12284 --- [job-backend] [restartedMain] vn.job.JobBackendApplication             : Started JobBackendApplication in 7.362 seconds (process running for 8.565)
+2024-11-08T08:40:13.883+07:00  INFO 12284 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-08T08:40:13.883+07:00  INFO 12284 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-08T08:40:13.885+07:00  INFO 12284 --- [job-backend] [RMI TCP Connection(3)-172.31.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
