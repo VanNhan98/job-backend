@@ -266,14 +266,14 @@ public class UserService {
         }
 
 
-        Role userRole = this.roleRepository.findByName("USER");
-        if(userRole == null) {
-            Role newRole = new Role();
-            newRole.setName("USER");
-            userRole = this.roleRepository.save(newRole);
-        }
-
-        user.setRole(userRole);
+//        Role userRole = this.roleRepository.findByName("USER");
+//        if(userRole == null) {
+//            Role newRole = new Role();
+//            newRole.setName("USER");
+//            userRole = this.roleRepository.save(newRole);
+//        }
+//
+//        user.setRole(userRole);
         
         User newUser = this.userRepository.save(user);
 
