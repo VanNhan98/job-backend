@@ -18,6 +18,7 @@ import vn.job.exception.IdInvalidException;
 import vn.job.model.Company;
 import vn.job.model.Role;
 import vn.job.model.User;
+import vn.job.repository.RoleRepository;
 import vn.job.repository.UserRepository;
 
 import java.io.UnsupportedEncodingException;
@@ -36,6 +37,8 @@ public class UserService {
     private  final CompanyService companyService;
 
     private final RoleService roleService;
+
+    private final RoleRepository roleRepository;
 
 
     public UserDetailsService userDetailsService() {
@@ -132,20 +135,18 @@ public class UserService {
             currentUser.setRole(roleOptional.orElse(null));
         }
 
-
-        //save
+        // save
         User updatedUser = this.userRepository.save(currentUser);
-
 
         ResponseUpdateUser.CompanyUser companyUser = null;
         if (updatedUser.getCompany() != null) {
             companyUser = new ResponseUpdateUser.CompanyUser();
-            companyUser.setId(currentUser.getCompany().getId());
-            companyUser.setName(currentUser.getCompany().getName());
+            companyUser.setId(updatedUser.getCompany().getId());
+            companyUser.setName(updatedUser.getCompany().getName());
         }
 
         ResponseUpdateUser.RoleUser roleUser = null;
-        if (currentUser.getCompany() != null) {
+        if (currentUser.getRole() != null) { // Sửa lại ở đây
             roleUser = new ResponseUpdateUser.RoleUser();
             roleUser.setId(currentUser.getRole().getId());
             roleUser.setName(currentUser.getRole().getName());
@@ -206,7 +207,7 @@ public class UserService {
         }
 
         ResUserDetail.RoleUser roleUser = null;
-        if (currentUser.getCompany() != null) {
+        if (currentUser.getRole() != null) {
             roleUser = new ResUserDetail.RoleUser();
             roleUser.setId(currentUser.getRole().getId());
             roleUser.setName(currentUser.getRole().getName());
@@ -263,6 +264,16 @@ public class UserService {
         if (isEmailExist(user.getEmail())) {
             throw new EntityAlreadyExistsException("Email already exists: " + user.getEmail());
         }
+
+
+        Role userRole = this.roleRepository.findByName("USER");
+        if(userRole == null) {
+            Role newRole = new Role();
+            newRole.setName("USER");
+            userRole = this.roleRepository.save(newRole);
+        }
+
+        user.setRole(userRole);
         
         User newUser = this.userRepository.save(user);
 

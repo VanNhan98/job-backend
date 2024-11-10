@@ -26,7 +26,7 @@ public class SecurityConfig {
     private final CustomizeFilter preFilter;
 
     private String[] WHITE_LIST = {
-            "/", "/auth/**","/users/confirm/**", "/storage/**","/send-mail","/users/**"
+            "/", "/auth/**","/users/confirm/**", "/storage/**","/send-mail"
     };
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http,CustomAuthenticationEntryPoint customAuthenticationEntryPoint) throws Exception {
@@ -36,6 +36,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/companies/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/jobs/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/skills/**").permitAll()
+                        .requestMatchers("/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(exception -> exception

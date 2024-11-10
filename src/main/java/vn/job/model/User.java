@@ -81,18 +81,18 @@ public class User extends BaseEntity implements UserDetails, Serializable
     /**
      * @return Returns the authorities granted to the user. Cannot return null.
      */
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        List<String> roleList = this.roles.stream().map(role -> role.getRole().getName()).toList();
-//        return roleList.stream().map(SimpleGrantedAuthority::new).toList();
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-    }
-
-
 //    @Override
 //    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        return List.of();
+////        List<String> roleList = this.roles.stream().map(role -> role.getRole().getName()).toList();
+////        return roleList.stream().map(SimpleGrantedAuthority::new).toList();
+//        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
 //    }
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.getName()));
+    }
 
     /**
      * Indicates whether the user's account has expired. An expired account cannot be authenticated.
