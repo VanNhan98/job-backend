@@ -1,6 +1,5 @@
 package vn.job.controller;
 
-
 import com.turkraft.springfilter.boot.Filter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -13,14 +12,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import vn.job.dto.response.ResPagination;
-import vn.job.dto.response.ResponseCreateUser;
 import vn.job.dto.response.error.ResponseData;
 import vn.job.dto.response.error.ResponseError;
 import vn.job.model.Company;
-import vn.job.model.User;
 import vn.job.service.CompanyService;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/companies")
@@ -46,6 +42,7 @@ public class CompanyController {
     }
 
     @PutMapping("/update")
+    @Operation(summary = "Update company", description = "API for update company into databases")
     public ResponseData<Company> updateCompany(@Valid @RequestBody Company reqcompany) {
         log.info("Request update company");
         try {
@@ -59,6 +56,7 @@ public class CompanyController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @Operation(summary = "Delete company", description = "API for delete company into databases")
     public ResponseData<Void> deleteCompany(@PathVariable("id") long id) {
         log.info("Request delete company={}", id);
         try {
@@ -71,6 +69,7 @@ public class CompanyController {
     }
 
     @GetMapping("/list")
+    @Operation(summary = "Get list companies", description = "API for get list companies into databases")
     public ResponseData<ResPagination> getAllCompany(@Filter Specification<Company> spec, Pageable pageable) {
         log.info("Request list company");
         try {
@@ -84,6 +83,7 @@ public class CompanyController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get company", description = "API for get company by id into databases")
     public ResponseData<Company> getCompany(@PathVariable("id") long id) {
         log.info("Request get company={}", id);
         try {

@@ -65,7 +65,7 @@ public class UserController {
         }
     }
 
-    @Operation(summary = "Get user detail", description = "API get user by id from databases")
+    @Operation(summary = "Get user ", description = "API get user by id from databases")
     @GetMapping("/{userId}")
     public ResponseData<ResUserDetail> getUserById(@PathVariable long userId) {
         log.info("Request detail user={}", userId);

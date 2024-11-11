@@ -1,6 +1,8 @@
 package vn.job.controller;
 
 import com.turkraft.springfilter.boot.Filter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,10 +21,12 @@ import vn.job.service.SkillService;
 @RequestMapping("skills")
 @RequiredArgsConstructor
 @Slf4j
+@Tag(name = "Skill Controller")
 public class SkillController {
     private final SkillService skillService;
 
     @PostMapping("/add")
+    @Operation(summary = "Create new skill", description = "API for insert skill into databases")
     public ResponseData<Skill> addSkill(@Valid @RequestBody Skill skill) {
         log.info("Request create skill={}", skill.getName());
         try {
@@ -36,6 +40,7 @@ public class SkillController {
     }
 
     @PutMapping("/update")
+    @Operation(summary = "Update skill", description = "API for update skill into databases")
     public ResponseData<Skill> updateSkill(@Valid @RequestBody Skill skill) {
         log.info("Request update skill={}", skill.getName());
         try {
@@ -49,6 +54,7 @@ public class SkillController {
     }
 
     @GetMapping("/list")
+    @Operation(summary = "Get list skills", description = "API for get list skills into databases")
     public ResponseData<ResPagination> getAllCompany(@Filter Specification<Skill> spec, Pageable pageable) {
         log.info("Request list skill");
         try {
@@ -62,6 +68,7 @@ public class SkillController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @Operation(summary = "Delete skill", description = "API for delete skill into databases")
     public ResponseData<Void> deleteSkill(@PathVariable("id") long id) {
         log.info("Request delete skill={}", id);
         try {

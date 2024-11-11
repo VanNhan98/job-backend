@@ -41,6 +41,7 @@ public class AuthController {
 
     private final UserService userService;
 
+    @Operation(summary = "Login user", description = "API for authenticate user")
     @PostMapping("/access")
     public ResponseData<TokenResponse> login(@RequestBody LoginRequest request, HttpServletResponse response) {
 
@@ -53,6 +54,7 @@ public class AuthController {
         }
     }
 
+    @Operation(summary = "Refresh token", description = "API for refresh token")
     @PostMapping("/refresh")
     public ResponseData<TokenResponse> refresh(HttpServletRequest request) {
         try {
@@ -64,7 +66,9 @@ public class AuthController {
         }
     }
 
-    @Operation(summary = "Register new user", description = "API for insert user into databases")
+
+
+    @Operation(summary = "Register user", description = "API for register new user")
     @PostMapping("/register")
     public ResponseData<ResRegisterDTO> register(@Valid @RequestBody User user) {
         log.info("Request create user={}", user.getUsername());
@@ -81,23 +85,27 @@ public class AuthController {
     }
 
 
+    @Operation(summary = "Logout user", description = "API for logout user")
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
         return new ResponseEntity<>(authService.logout(request,response), HttpStatus.OK);
     }
 
 
+    @Operation(summary = "Forgot password", description = "API for forgot password")
     @PostMapping("/forgot-password")
     public ResponseData<String> forgotPassword(@RequestBody String email) throws MessagingException, UnsupportedEncodingException {
         return new ResponseData<>(HttpStatus.OK.value(), authService.forgotPassword(email));
     }
 
-
+    @Operation(summary = "Reset password", description = "API for reset password")
     @GetMapping("/reset-password")
     public ResponseData<String> resetPassword(@RequestParam String secretKey) {
         return new ResponseData<>(HttpStatus.OK.value(),authService.resetPassword(secretKey));
     }
 
+
+    @Operation(summary = "Change password", description = "API for change password")
     @PostMapping("/change-password")
     public ResponseData<String> changePassword(@RequestBody ResetPasswordDTO request) {
         return new ResponseData<>(HttpStatus.OK.value(), authService.changePassword(request));

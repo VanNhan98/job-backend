@@ -1,6 +1,8 @@
 package vn.job.controller;
 
 import com.turkraft.springfilter.boot.Filter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,10 +25,13 @@ import vn.job.service.PermissionService;
 @RequiredArgsConstructor
 @Slf4j
 @Validated
+@Tag(name = "Permission Controller")
 public class PermissionController {
 
     private final PermissionService permissionService;
     @PostMapping("/add")
+    @Operation(summary = "Create new permission", description = "API for insert permission into databases")
+
     public ResponseData<Permission> addPermission(@Valid @RequestBody Permission permission) {
         log.info("Request create permission={}", permission.getName());
         try {
@@ -40,6 +45,7 @@ public class PermissionController {
     }
 
     @PutMapping("/update")
+    @Operation(summary = "Update permission", description = "API for update permission into databases")
     public ResponseData<Permission> updatePermission(@Valid @RequestBody Permission permission) {
         log.info("Request update permission={}", permission.getName());
         try {
@@ -54,6 +60,7 @@ public class PermissionController {
 
 
     @GetMapping("/list")
+    @Operation(summary = "Get list permission", description = "API for get list permission into databases")
     public ResponseData<ResPagination> getAllPermission(@Filter Specification<Permission> spec, Pageable pageable) {
         log.info("Request list permission");
         try {
@@ -68,6 +75,7 @@ public class PermissionController {
 
 
     @DeleteMapping("/delete/{id}")
+    @Operation(summary = "Delete permission", description = "API for delete permission from databases")
     public ResponseData<Void> deletePermission(@PathVariable("id") long id) {
         log.info("Request delete permission={}", id);
         try {

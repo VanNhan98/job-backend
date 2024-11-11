@@ -1,6 +1,8 @@
 package vn.job.controller;
 
 import com.turkraft.springfilter.boot.Filter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,10 +30,12 @@ import vn.job.service.ResumeService;
 @RequiredArgsConstructor
 @Slf4j
 @Validated
+@Tag(name = "Resume Controller")
 public class ResumeController {
     private final ResumeService resumeService;
 
     @PostMapping("/add")
+    @Operation(summary = "Create new resume", description = "API for insert resume into databases")
     public ResponseData<ResCreateResume> addResume(@Valid @RequestBody Resume resume) {
         log.info("Request create resume={}", resume.getEmail());
         try {
@@ -45,6 +49,7 @@ public class ResumeController {
     }
 
     @PutMapping("/update")
+    @Operation(summary = "Update resume", description = "API for update resume into databases")
     public ResponseData<ResUpdateResume> updateResume(@RequestBody RequestUpdateResume resume) {
         log.info("Request update resume={}", resume.getId());
         try {
@@ -58,6 +63,8 @@ public class ResumeController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @Operation(summary = "Delete resume", description = "API for delete resume into databases")
+
     public ResponseData<Void> deleteResume(@PathVariable("id") long id) {
         log.info("Request delete deleteResume={}", id);
         try {
@@ -70,6 +77,8 @@ public class ResumeController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get resume", description = "API for get resume into databases")
+
     public ResponseData<ResDetailResume> getResume(@PathVariable("id") long id) {
         log.info("Request get resume={}", id);
         try {
@@ -84,6 +93,8 @@ public class ResumeController {
 
 
     @GetMapping("/list")
+    @Operation(summary = "Get list resumes", description = "API for get list resumes into databases")
+
     public ResponseData<ResPagination> getAllResume(@Filter Specification<Resume> spec, Pageable pageable) {
         log.info("Request list Resume");
         try {
@@ -97,6 +108,7 @@ public class ResumeController {
     }
 
     @GetMapping("/by-user")
+    @Operation(summary = "Get resume by user", description = "API for get resume by user into databases")
     public ResponseData<ResPagination> getResumeByUser(Pageable pageable) {
         log.info("Request get resume by user");
         try {

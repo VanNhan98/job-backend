@@ -1,6 +1,8 @@
 package vn.job.controller;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,6 +24,7 @@ import java.util.Date;
 @RequestMapping("/files")
 @RequiredArgsConstructor
 @Slf4j
+@Tag(name = "File Controller")
 public class FileController {
     private final FileService fileService;
 
@@ -29,6 +32,8 @@ public class FileController {
     private String baseUri;
 
     @PostMapping("/upload")
+    @Operation(summary = "Upload file", description = "API for upload")
+
     public ResponseData<ResFileDTO> uploadFile(@RequestParam(name = "file", required = false) MultipartFile file,
                                                @RequestParam("folder") String folder) throws URISyntaxException {
         log.info("Uploading file");

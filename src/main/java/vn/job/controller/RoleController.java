@@ -2,6 +2,8 @@ package vn.job.controller;
 
 
 import com.turkraft.springfilter.boot.Filter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,10 +23,12 @@ import vn.job.service.RoleService;
 @RequestMapping("/roles")
 @Slf4j
 @RequiredArgsConstructor
+@Tag(name ="Role Controller")
 public class RoleController {
     private final RoleService roleService;
 
     @PostMapping("/add")
+    @Operation(summary = "Create new role", description = "API for insert role into databases")
     public ResponseData<Role> addRole(@Valid @RequestBody Role role) {
         log.info("Request create role={}", role.getName());
         try {
@@ -37,6 +41,7 @@ public class RoleController {
     }
 
     @PutMapping("/update")
+    @Operation(summary = "Update role", description = "API for update role into databases")
     public ResponseData<Role> updateRole(@Valid @RequestBody Role role) {
         log.info("Request update role={}", role.getName());
         try {
@@ -50,6 +55,7 @@ public class RoleController {
     }
 
     @GetMapping("/list")
+    @Operation(summary = "Get list roles", description = "API for insert company into databases")
     public ResponseData<ResPagination> getAllRoles(@Filter Specification<Role> spec, Pageable pageable) {
         log.info("Request list role");
         try {
@@ -63,6 +69,7 @@ public class RoleController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get role", description = "API for get role into databases")
     public ResponseData<Role> getRole(@PathVariable("id") long id) {
         log.info("Request get role={}", id);
         try {
@@ -76,6 +83,7 @@ public class RoleController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @Operation(summary = "Get list role", description = "API for get list role into databases")
     public ResponseData<Void> deleteRole(@PathVariable("id") long id) {
         log.info("Request delete role={}", id);
         try {

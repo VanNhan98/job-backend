@@ -1,6 +1,8 @@
 package vn.job.controller;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +21,14 @@ import java.io.UnsupportedEncodingException;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
+@Tag(name = "Email Controller")
 public class EmailController {
     private final EmailService emailService;
 
     private final SubscriberService subscriberService;
 
     @PostMapping("/send-mail")
+    @Operation(summary = "Send mail", description = "API for send mail")
     public ResponseData<String> sendEmail() {
         log.info("Sending email to");
         try {
