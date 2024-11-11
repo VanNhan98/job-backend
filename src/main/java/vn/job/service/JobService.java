@@ -12,6 +12,7 @@ import vn.job.dto.response.ResPagination;
 import vn.job.dto.response.job.ResCreateJob;
 import vn.job.dto.response.job.ResUpdateJob;
 import vn.job.exception.IdInvalidException;
+import vn.job.model.BaseEntity;
 import vn.job.model.Company;
 import vn.job.model.Job;
 import vn.job.model.Skill;
@@ -36,7 +37,7 @@ public class JobService {
         log.info("-------------------Create Job ----------------");
 
         if (job.getSkills() != null) {
-            List<Long> reqSkill = job.getSkills().stream().map(item -> item.getId()).collect(Collectors.toList());
+            List<Long> reqSkill = job.getSkills().stream().map(BaseEntity::getId).collect(Collectors.toList());
             List<Skill> dbSkills = this.skillRepository.findByIdIn(reqSkill);
             job.setSkills(dbSkills);
         }

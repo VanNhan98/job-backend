@@ -84,6 +84,7 @@ public class ApplicationInitConfig {
                 arr.add(new Permission("Get subscribers with pagination", "/subscribers/list", "GET", "SUBSCRIBERS"));
 
                 arr.add(new Permission("Upload a file", "/files/upload", "GET", "FILES"));
+                arr.add(new Permission("Send mail", "/send-mail", "POST", "MAILS"));
 
                 this.permissionRepository.saveAll(arr);
             }

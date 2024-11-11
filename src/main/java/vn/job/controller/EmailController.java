@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import vn.job.dto.response.error.ResponseData;
 import vn.job.dto.response.error.ResponseError;
 import vn.job.service.EmailService;
+import vn.job.service.SubscriberService;
 
 import java.io.UnsupportedEncodingException;
 
@@ -21,13 +22,15 @@ import java.io.UnsupportedEncodingException;
 public class EmailController {
     private final EmailService emailService;
 
+    private final SubscriberService subscriberService;
+
     @PostMapping("/send-mail")
-    public ResponseData<String> sendEmail(@RequestParam String recipients, @RequestParam String subject,
-                            @RequestParam String content, @RequestParam(required = false) MultipartFile[] files) {
-        log.info("Sending email to: {}", recipients);
+    public ResponseData<String> sendEmail() {
+        log.info("Sending email to");
         try {
-            return new ResponseData<>(HttpStatus.ACCEPTED.value(), emailService.sendEmail(recipients, subject, content, files));
-        } catch (MessagingException  | UnsupportedEncodingException e) {
+            this.subscriberService.sendSubscribersEmailJobs();
+            return new ResponseData<>(HttpStatus.ACCEPTED.value(),"Sending email success" );
+        } catch (Exception e) {
             log.error("Sending email was failure, message={}", e.getMessage(), e);
             return new ResponseError(HttpStatus.BAD_REQUEST.value(), "Sending email was failure");
         }

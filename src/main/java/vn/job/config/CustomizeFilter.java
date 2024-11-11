@@ -21,6 +21,7 @@ import vn.job.service.JwtService;
 import vn.job.service.TokenService;
 import vn.job.service.UserService;
 import vn.job.util.TokenType;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
@@ -37,47 +38,50 @@ public class CustomizeFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        log.info("-------------PreFilter----------------");
+        final String authorization =  request.getHeader("Authorization");
 
-        log.info("-------------CustomizeFilter Activated----------------");
+        if (StringUtils.isBlank(authorization) || !authorization.startsWith("Bearer ")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+        final String token = authorization.substring("Bearer ".length());
+        log.info("token: {}",token.substring(0,20));
 
-        // Lấy token từ header Authorization
-        final String authorization = request.getHeader("Authorization");
+
+
         String email = null;
+        try {
+            email = jwtService.extractEmail(token, TokenType.ACCESS_TOKEN);
+            log.info("email: {}", email);
+        }catch (AccessDeniedException e) {
+            log.info(e.getMessage());
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().write(errorResponse(e.getMessage()));
+            return;
+        }
 
-        // Kiểm tra token, nếu có thì tiến hành giải mã
-        if (StringUtils.isNotBlank(authorization) && authorization.startsWith("Bearer ")) {
-            final String token = authorization.substring("Bearer ".length());
-            log.info("Token: {}", token.substring(0, 20));
 
-            try {
-                // Giải mã và lấy email từ token
-                email = jwtService.extractEmail(token, TokenType.ACCESS_TOKEN);
-                log.info("Email extracted from token: {}", email);
-            } catch (AccessDeniedException e) {
-                log.warn("Access denied: {}", e.getMessage());
-                // Không chặn request, tiếp tục luồng xử lý
-            }
-
-            // Nếu có email và chưa thiết lập SecurityContext, tạo Authentication
-            if (StringUtils.isNotEmpty(email) && SecurityContextHolder.getContext().getAuthentication() == null) {
-                UserDetails userDetails = userService.userDetailsService().loadUserByUsername(email);
-                if (jwtService.isValid(token, TokenType.ACCESS_TOKEN, userDetails)) {
-                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                            userDetails, null, userDetails.getAuthorities());
-                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    SecurityContextHolder.getContext().setAuthentication(authToken);
-                }
+        if(StringUtils.isNotEmpty(email) && SecurityContextHolder.getContext().getAuthentication() == null) {
+            UserDetails userDetails = userService.userDetailsService().loadUserByUsername(email);
+            if( jwtService.isValid(token, TokenType.ACCESS_TOKEN,userDetails) ) {
+                SecurityContext context = SecurityContextHolder.createEmptyContext();
+                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                context.setAuthentication(authToken);
+                SecurityContextHolder.setContext(context);
             }
         }
 
-        // Luôn tiếp tục chuỗi filter để đảm bảo request đi qua PermissionInterceptor
         filterChain.doFilter(request, response);
+
     }
 
+
+
     /**
-     * Tạo phản hồi lỗi với định dạng JSON.
+     * Create error response with pretty template
      * @param message
      * @return
      */
@@ -91,7 +95,8 @@ public class CustomizeFilter extends OncePerRequestFilter {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             return gson.toJson(error);
         } catch (Exception e) {
-            return ""; // Trả về chuỗi rỗng nếu serialization gặp lỗi
+            return ""; // Return an empty string if serialization fails
         }
     }
+
 }

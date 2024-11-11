@@ -45,10 +45,10 @@ public class PermissionInterceptor implements HandlerInterceptor {
                     boolean isAllow = permissions.stream().anyMatch(item -> item.getApiPath().equals(path)
                             && item.getMethod().equals(httpMethod));
                     if (isAllow == false) {
-                        throw new InvalidDataException("Ban khong co quyen truy cap enpoint");
+                        throw new InvalidDataException("you not access enpoint");
                     }
                 } else {
-                    throw new InvalidDataException("Ban khong co quyen truy cap enpoint");
+                    throw new InvalidDataException("you not access  enpoint");
                 }
             }
         }
