@@ -1,8 +1,8 @@
 ## Prerequisite
-- Cài đặt JDK 17+ nếu chưa thì [cài đặt JDK]
-- Install Maven 3.5+ nếu chưa thì [cài đặt Maven]
-- Install IntelliJ nếu chưa thì [cài đặt IntelliJ]
-- Íntall Docker 
+- Cài đặt JDK 17+ 
+- Install Maven 3.5+ 
+- Install IntelliJ
+- Install Docker 
 
 ## Technical Stacks
 - Java 17
@@ -14,3 +14,5 @@
 - Lombok
 - DevTools
 - Docker Compose
+
+  
